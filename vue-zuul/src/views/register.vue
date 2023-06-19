@@ -35,7 +35,6 @@
 </template>
 
 <script>
-/* import request from "@/utils/request"; */
 import axios from 'axios';
 
 export default {
@@ -89,21 +88,6 @@ export default {
           }).catch((err) => {
             console.log(err)
           });
-          /* request.post("/api/user/register",this.form).then(res => {
-            console.log(res);
-            if (res.code==='0'){
-              this.$message({
-                type: "success",
-                message: "注册成功"
-              })
-              this.$router.push("/login");//注册成功后的页面跳转
-            }else {
-              this.$message({
-                type: "error",
-                message: res.msg
-              })
-            }
-          }) */
         } else {
           console.log('error submit!!');
           return false;
