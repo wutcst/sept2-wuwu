@@ -5,7 +5,6 @@
       <!-- :model="form"：该属性用于将表单数据绑定到组件的form属性上，实现表单数据的双向绑定。 -->
       <!-- :rules="rules"：该属性用于将表单的验证规则绑定到组件的rules属性上 -->
       <el-form :model="form" size="normal" style="height: 100% ;width: 220px;" ref="form" :rules="rules">
-        
         <!-- Login字母logo -->
         <div style="width: 100%;height: 40px;margin-top:10px;line-height: 40px;text-align: center">
           <span style="color: white;font-weight: 900;font-size: 30px;">Login</span>
@@ -26,14 +25,12 @@
         <el-form-item style="text-align: center; color: white;">
           <a @click="toRegister" style="font-size: 16px;font-weight: 500;opacity: 0.8;text-decoration: underline">注册</a>
         </el-form-item>
-
       </el-form>
     </div>
   </div>
 </template>
 
 <script>
-/* import request from "@/utils/request"; */
 import axios from 'axios'
 export default {
   /* name: "login", */
@@ -89,23 +86,6 @@ export default {
           }).catch((err) => {
             console.log(err)
           });
-          /* request.post("http://yapi.smart-xwork.cn/mock/264710/yapi/login1", this.form).then((res) => {
-            console.log(res);
-            if (res.code === "0") {
-              this.$message({
-                type: "success",
-                message: "登录成功",
-              });
-              console.log("res.data:" + res.data);
-              sessionStorage.setItem("user", JSON.stringify(res.data)); //缓存用户信息
-              this.$router.push("/main"); //登录成功后的页面跳转
-            } else {
-              this.$message({
-                type: "error",
-                message: res.message,
-              });
-            }
-          }); */
         } else {
           console.log("error submit!!");
           /* validate方法只会验证表单的规则，但不会阻止表单的默认提交行为。如果需要阻止表单的默认提交行为，可以在valid回调函数中返回false。 */
@@ -119,3 +99,4 @@ export default {
 
 <style scoped>
 </style>
+
