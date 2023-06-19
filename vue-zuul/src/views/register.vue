@@ -39,6 +39,8 @@
   </div>
 </template>
 
+
+
 <script>
 import axios from 'axios';
 
@@ -108,7 +110,14 @@ export default {
     }
   }
 }
-</script>
-/* 在这里添加局部样式 */
 
-<style scoped></style>
+</script>
+
+
+
+
+/* 在这里添加局部样式 */
+<style scoped>
+
+
+</style>
