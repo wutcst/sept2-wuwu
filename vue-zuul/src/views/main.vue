@@ -72,7 +72,10 @@ export default {
         this.messages.push({ text: this.inputText, isBot: false })
         this.inputText = ''
 
-        axios.get('http://yapi.smart-xwork.cn/mock/264710/yapi/test01').then((result) => {
+        /* 这里发get还是post都可以，还是选择发post */
+        /* 这里目前没有写判断code值为0或1的逻辑，后端传过来的数据code值都应该为1，只需要获取data.data即可 */
+        /* 但接口文档里貌似code为0失败时的data为null，后期测试时按需修改 */
+        axios.post('http://yapi.smart-xwork.cn/mock/264710/yapi/test01', {"command": this.inputText}).then((result) => {
           const botMessage = result.data.data;
           this.messages.push({ text: botMessage, isBot: true })
         }).catch((err) => {
