@@ -1,5 +1,4 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<!-- 在这里禁用了名为vue/multi-word-component-names的ESLint规则 -->
 
 <template>
   <!-- 模板部分 -->
