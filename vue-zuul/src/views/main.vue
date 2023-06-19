@@ -1,4 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
+<!-- 在这里禁用了名为vue/multi-word-component-names的ESLint规则 -->
 
 <template>
   <!-- 模板部分 -->
@@ -48,7 +49,7 @@ export default {
   data() {
     return {
       inputText: '',
-      additionalText: 'world-of-zull是由will Crowther在20世纪70年代开发、并经过Don woods扩充的一个探险游戏。原版的游戏有时候也叫作巨洞探险(Colossal Cave Adventure）。在那个时代可是一个精彩的、充满想象力的复杂游戏，包括要在一个复杂的洞穴系统中找到出路、寻找隐藏的财宝、使用暗语和其他一些神秘的工具，最终的目的是获得高分。', // 添加的文本框的文字内容
+      additionalText: '', // 添加的文本框的文字内容
       messages: [
         { text: 'Hello! How can I help you?', isBot: true },
       ],
@@ -77,6 +78,7 @@ export default {
           console.log(err);
         });
 
+        /* 超时的时候返回值 */
         /* setTimeout(() => {
           this.messages.push({ text: 'I am sorry, I do not understand.', isBot: true })
         }, 1000) */
@@ -86,6 +88,7 @@ export default {
 }
 </script>
 
+<!-- 样式设计 -->
 <style>
 .chat-container {
   height: 100vh;
