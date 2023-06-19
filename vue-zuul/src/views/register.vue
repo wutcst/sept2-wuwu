@@ -82,9 +82,13 @@ export default {
         // 表单验证
         if (valid) {
           // 验证通过，向后端发送注册请求
-          axios.get('http://yapi.smart-xwork.cn/mock/264710/yapi/register2').then((result) => {
+          /* 这里注册也发post请求合适 */
+          /* 成功的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/register1 */
+          /* 失败的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/register2 */
+          axios.post('http://yapi.smart-xwork.cn/mock/264710/yapi/register1').then((result) => {
             console.log(result);
-            if (result.data.code === 0) {
+            /* code码为1是注册成功 */
+            if (result.data.code === 1) {
               this.$message({
                 type: "success",
                 message: "注册成功"
@@ -94,7 +98,7 @@ export default {
             else {
               this.$message({
                 type: "error",
-                message: result.data.message
+                message: "注册失败"
               })
             }
           }).catch((err) => {
@@ -117,7 +121,4 @@ export default {
 
 
 /* 在这里添加局部样式 */
-<style scoped>
-
-
-</style>
+<style scoped></style>
