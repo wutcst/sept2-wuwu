@@ -61,7 +61,7 @@ export default {
   
   methods: {
     toRegister() {
-      this.$router.push("/register");
+      this.$router.push("/register"); //跳转到注册界面
     },
     login() {
       this.$refs["form"].validate((valid) => {
@@ -73,7 +73,7 @@ export default {
                 type: "success",
                 message: "登录成功",
               });
-              this.$router.push("/main"); //登录成功后的页面跳转
+              this.$router.push("/main"); //登录成功后的页面跳转到主界面
             }
             else{
               /* this.$router.push("/main"); */
@@ -95,6 +95,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
