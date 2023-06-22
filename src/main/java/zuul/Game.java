@@ -17,7 +17,6 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-
     private Inventory inventory;
 
     public Game()
