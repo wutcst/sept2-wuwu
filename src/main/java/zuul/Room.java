@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class Room
 {
+    private String name;
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private Inventory items;
@@ -50,6 +51,14 @@ public class Room
 
     public Inventory getItems() {
         return items;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

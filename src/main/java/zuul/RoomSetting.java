@@ -1,6 +1,7 @@
 package zuul;
 
 import java.util.HashMap;
+import lombok.val;
 
 /**
  * @author:wangyuze
@@ -64,6 +65,11 @@ public class RoomSetting {
         rooms.get(RoomId.EXIT5).setExit("north", rooms.get(RoomId.EXIT4));
         rooms.get(RoomId.EXIT6).setExit("south", rooms.get(RoomId.EXIT7));
         rooms.get(RoomId.EXIT7).setExit("west", rooms.get(RoomId.ENTRANCE));
+        for(var t:rooms.entrySet()){
+            var room = t.getValue();
+            var id  =t.getKey();
+            room.setName(id.toString().toLowerCase());
+        }
     }
 
 }
