@@ -11,7 +11,7 @@ public class GoCommand extends Command
         String direction = getSecondWord();
         Room currentRoom = game.getCurrentRoom();
 
-        Room nextRoom = game.getCurrentRoom().getExit(direction);
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
