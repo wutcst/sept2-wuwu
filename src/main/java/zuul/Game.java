@@ -13,9 +13,6 @@
  */
 package zuul;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Game
 {
     private Parser parser;

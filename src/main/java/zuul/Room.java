@@ -1,17 +1,21 @@
 package zuul;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 public class Room
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    private Inventory items;
 
     public Room(String description)
     {
         this.description = description;
         exits = new HashMap<>();
+        items = new Inventory();
     }
 
     public void setExit(String direction, Room neighbor)
@@ -42,6 +46,10 @@ public class Room
     public Room getExit(String direction)
     {
         return exits.get(direction);
+    }
+
+    public Inventory getItems() {
+        return items;
     }
 }
 
