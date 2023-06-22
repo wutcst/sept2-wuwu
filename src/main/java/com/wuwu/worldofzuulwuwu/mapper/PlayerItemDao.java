@@ -18,10 +18,10 @@ public interface PlayerItemDao {
     @Select("SELECT * FROM playerItem")
     List<PlayerItem> findAll();
 
-    @Update("UPDATE playerItem WHERE playerId=#{playerId} AND id=#{id}")
+    @Update("UPDATE playerItem SET count=#{count} WHERE playerId=#{playerId} AND id=#{id}")
     int update(PlayerItem playerItem);
 
-    @Delete("DELETE playerItem WHERE playerId=#{playerId} AND id=#{id}")
+    @Delete("DELETE FROM playerItem WHERE playerId=#{playerId} AND id=#{id}")
     int delete(PlayerItem playerItem);
 
 }
