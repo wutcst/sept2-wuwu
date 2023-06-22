@@ -9,13 +9,13 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
-    private List<Item> items;
+    private Inventory items;
 
     public Room(String description)
     {
         this.description = description;
         exits = new HashMap<>();
-        items = new LinkedList<>();
+        items = new Inventory();
     }
 
     public void setExit(String direction, Room neighbor)
@@ -48,16 +48,8 @@ public class Room
         return exits.get(direction);
     }
 
-    public String getItemsString(){
-        if(items.isEmpty()){
-            return "This room has been cleared.";
-        } else{
-            String description = "After a minute of search, you find:\n";
-            for(Item item : items){
-                description += item.getName() + " *" + item.getDescription() + "\n";
-            }
-            return description;
-        }
+    public Inventory getItems() {
+        return items;
     }
 }
 
