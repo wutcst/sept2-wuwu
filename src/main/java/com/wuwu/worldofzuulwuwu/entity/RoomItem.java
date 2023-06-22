@@ -11,6 +11,6 @@ import lombok.Data;
 public class RoomItem {
     private Long playerId;
     private Integer roomId;
-    private Integer itemId;
+    private Integer id;
     private Integer count;
 }

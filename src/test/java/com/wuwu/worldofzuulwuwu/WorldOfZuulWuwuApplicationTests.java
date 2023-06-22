@@ -30,7 +30,7 @@ class WorldOfZuulWuwuApplicationTests {
 	@Test
 	void contextLoads() {
 		Player player = playerDao.findByName("123");
-		playerDao.save(player);
+//		playerDao.save(player);
 		playerDao.update(player);
 
 		PlayerItem playerItem = playerItemDao.findOne(0L, 0);
@@ -38,7 +38,7 @@ class WorldOfZuulWuwuApplicationTests {
 
 		List<RoomItem> byRoomId = roomItemDao.findAll(0L, 0);
 		RoomItem one = roomItemDao.findOne(0L, 0, 0);
-		roomItemDao.save(one);
+//		roomItemDao.save(one);
 		roomItemDao.update(one);
 
 	}
