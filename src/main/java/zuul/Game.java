@@ -19,9 +19,6 @@ public class Game
     private Room currentRoom;
     private Inventory inventory;
 
-
-    private Inventory inventory;
-
     public Game()
     {
         createRooms();

@@ -1,13 +1,11 @@
 package com.wuwu.worldofzuulwuwu.mapper;
 
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
 public interface RoomItemDao {
 
     @Select("SELECT * FROM roomItem WHERE roomId=#{roomId} AND playerId=#{playerId}")
