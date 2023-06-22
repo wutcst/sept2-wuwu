@@ -10,8 +10,11 @@ import java.util.List;
 
 public interface RoomItemDao {
 
-    @Select("SELECT * FROM roomItem WHERE roomId=#{roomId}")
-    List<RoomItem> findByRoomId(int roomId);
+    @Select("SELECT * FROM roomItem WHERE roomId=#{roomId} AND playerId=#{playerId}")
+    List<RoomItem> findAll(Long playerId,int roomId);
+
+    @Select("SELECT * FROM roomItem WHERE roomId=#{roomId} AND playerId=#{playerId} AND id=#{id}")
+    RoomItem findOne(Long playerId,int roomId,int id);
 
     @Update("UPDATE roomItem SET count=#{count} WHERE roomId=#{roomId} AND playerId=#{playerId} AND id=#{id}")
     int update(RoomItem roomItem);
