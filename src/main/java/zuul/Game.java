@@ -18,6 +18,8 @@ public class Game
     private Parser parser;
     private Room currentRoom;
 
+    private Inventory inventory;
+
     public Game()
     {
         createRooms();
@@ -88,5 +90,9 @@ public class Game
 
     public void setCurrentRoom(Room room){
         this.currentRoom = room;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
