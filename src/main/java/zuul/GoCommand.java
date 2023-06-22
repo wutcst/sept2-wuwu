@@ -6,6 +6,7 @@ public class GoCommand extends Command
     {
         if(!hasSecondWord()) {
             System.out.println("Go where?");
+            return false;
         }
 
         String direction = getSecondWord();

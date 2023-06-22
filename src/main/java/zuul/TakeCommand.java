@@ -7,6 +7,7 @@ public class TakeCommand extends Command{
     //未指明要获取什么物品
     if(!hasSecondWord()){
       System.out.println("take what?");
+      return false;
     }
 
     //从房间查找该物品
@@ -20,7 +21,7 @@ public class TakeCommand extends Command{
     }else{
       currentRoom.getItems().removeItem(item);
       game.getInventory().addItem(item);
-      System.out.println("You took " + item);
+      System.out.println("You took " + itemName);
     }
 
     return false;
