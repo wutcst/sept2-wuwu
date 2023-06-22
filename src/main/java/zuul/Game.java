@@ -20,6 +20,8 @@ public class Game
     private Inventory inventory;
 
 
+    private Inventory inventory;
+
     public Game()
     {
         createRooms();
