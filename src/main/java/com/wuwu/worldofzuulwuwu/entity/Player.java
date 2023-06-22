@@ -13,4 +13,6 @@ public class Player {
     private Long id;
     private String name;
     private String password;
+    private Integer currentRoom;
+    private Integer capacity;
 }
