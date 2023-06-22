@@ -11,7 +11,7 @@
  * @author  Michael Kölling and David J. Barnes
  * @version 1.0
  */
-package cn.edu.whut.sept.zuul;
+package zuul;
 
 public class Game
 {

@@ -1,4 +1,4 @@
-package cn.edu.whut.sept.zuul;
+package zuul;
 
 public class QuitCommand extends Command
 {
