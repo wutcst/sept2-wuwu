@@ -19,10 +19,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 18.16.0
 
       - name: Install dependencies
-        run: npm install
+      - run: cd ./vue-zuul
+      - run: npm install
 
       - name: Code Format Check
         run: npm run lint
