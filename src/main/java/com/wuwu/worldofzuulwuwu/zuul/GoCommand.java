@@ -1,12 +1,13 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.wuwu.worldofzuulwuwu.service.impl.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GoCommand extends Command
 {
     @Autowired
-    private PlayerServiceImpl playerService;
+    private PlayerService playerService;
 
     public String execute(Long playerId)
     {

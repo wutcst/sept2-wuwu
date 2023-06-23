@@ -1,4 +1,4 @@
-package com.wuwu.worldofzuulwuwu.zuul;
+package zuul;
 
 import java.util.List;
 import java.util.Scanner;
@@ -32,9 +32,13 @@ public class Parser
         return command;
     }
 
-    public List<String> showCommands()
+<<<<<<<<< Temporary merge branch 1
+    public String showCommands()
     {
-        return null;
+        return commands.showAll();
     }
+=========
+
+>>>>>>>>> Temporary merge branch 2
 }
 
