@@ -1,4 +1,4 @@
-package cn.edu.whut.sept.zuul;
+package zuul;
 
 public class GoCommand extends Command
 {
@@ -6,12 +6,13 @@ public class GoCommand extends Command
     {
         if(!hasSecondWord()) {
             System.out.println("Go where?");
+            return false;
         }
 
         String direction = getSecondWord();
         Room currentRoom = game.getCurrentRoom();
 
-        Room nextRoom = game.getCurrentRoom().getExit(direction);
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");

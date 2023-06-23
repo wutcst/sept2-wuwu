@@ -1,4 +1,4 @@
-package cn.edu.whut.sept.zuul;
+package zuul;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,6 +13,9 @@ public class CommandWords
         commands.put("go", new GoCommand());
         commands.put("help", new HelpCommand(this));
         commands.put("quit", new QuitCommand());
+        commands.put("look", new LookCommand());
+        commands.put("take", new TakeCommand());
+        commands.put("drop", new DropCommand());
     }
 
     public Command get(String word)
