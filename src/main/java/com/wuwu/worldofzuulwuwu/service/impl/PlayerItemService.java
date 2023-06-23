@@ -2,8 +2,12 @@ package com.wuwu.worldofzuulwuwu.service.impl;
 
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
+import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
+import java.util.List;
 import zuul.ItemSetting;
+import zuul.Room;
+import zuul.RoomId;
 
 public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.PlayerItemService {
 
@@ -31,5 +35,11 @@ public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.Playe
     int result = playerItemDao.delete(playerItem);
 
     return result > 0;
+  }
+
+  @Override
+  public List<PlayerItem> lookUpAllItems(Long playerId) {
+    List<RoomItem> itemList = playerItemDao.findAll();
+    return itemList;
   }
 }
