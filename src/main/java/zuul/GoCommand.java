@@ -1,7 +1,13 @@
 package zuul;
 
+import com.wuwu.worldofzuulwuwu.service.impl.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class GoCommand extends Command
 {
+    @Autowired
+    private PlayerService playerService;
+
     public String execute(Long playerId)
     {
         if(!hasSecondWord()) {
@@ -9,7 +15,9 @@ public class GoCommand extends Command
         }
 
         String direction = getSecondWord();
-        Room currentRoom = game.getCurrentRoom();
+
+
+        Room currentRoom = RoomSetting.rooms.get(playerService.getCurrentRoom(playerId));
 
         Room nextRoom = currentRoom.getExit(direction);
 
