@@ -18,12 +18,12 @@ public class PlayerService implements com.wuwu.worldofzuulwuwu.service.PlayerSer
     }
   }
 
-  public Boolean login(Player player){
+  public Long login(Player player){
     Player player1 = playerDao.findByName(player.getName());
     if(player1.getPassword().equals(player.getPassword())){
-      return true;
+      return player.getId();
     }else{
-      return false;
+      return null;
     }
   }
 
