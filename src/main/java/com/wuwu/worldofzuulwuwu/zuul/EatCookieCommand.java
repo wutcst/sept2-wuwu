@@ -14,11 +14,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class EatCookieCommand extends Command {
     private static PlayerItemService playerItemService;
+    private static PlayerService playerService;
 
 
     @Autowired
     public void setPlayerItemService (PlayerItemService playerItemService){
         EatCookieCommand.playerItemService = playerItemService;
+    }
+
+    @Autowired
+    public void setPlayerService (PlayerService playerService){
+        EatCookieCommand.playerService = playerService;
     }
 
     @Override
@@ -36,6 +42,7 @@ public class EatCookieCommand extends Command {
                 return "You don't have cookie in your backpack";
             }
             else{
+                playerService.addCapacity(playerId, 10);
                 return "Your backpack capacity has increased by 10";
             }
         }

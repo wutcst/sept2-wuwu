@@ -75,4 +75,10 @@ public class PlayerServiceImpl implements PlayerService {
     Player player = playerDao.findById(id);
     return player.getCapacity();
   }
+
+  @Override
+  public void addCapacity(Long id, Integer increment) {
+    Player player = playerDao.findById(id);
+    player.setCapacity(player.getCapacity() + increment);
+  }
 }

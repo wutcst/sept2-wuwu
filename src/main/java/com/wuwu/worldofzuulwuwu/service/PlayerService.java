@@ -12,5 +12,6 @@ public interface PlayerService {
 
   String getName(Long id);
   Integer getCapacity(Long id);
+  void addCapacity(Long id, Integer increment);
 
 }
