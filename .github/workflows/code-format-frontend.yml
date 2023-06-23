@@ -27,9 +27,12 @@ jobs:
           
       - name: get current info3
         run: pwd
+        
+      - name: show branch
+        run: git branch -a
       
       - name: list
-        run: ll -a
+        run: ls -a
         
       - name: print git version
         run: git --version
