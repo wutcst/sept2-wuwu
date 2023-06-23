@@ -11,10 +11,11 @@ public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.Playe
   @Autowired
   private PlayerItemDao playerItemDao;
 
-  public Boolean addItem(Long playerId, String item){
+  public Boolean addItem(Long playerId, String itemName){
 
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
+    playerItem.setId(ItemSetting.getId(itemName));
     playerItem.setCount(1);
 
     PlayerItem playerItem1 = playerItemDao.save(playerItem);
@@ -30,8 +31,6 @@ public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.Playe
     playerItem.setPlayerId(playerId);
     playerItem.setId(itemId);
 
-    int result = playerItemDao.delete(playerItem);
-
-    return result > 0;
+    return playerItemDao.delete(playerItem) > 0;
   }
 }
