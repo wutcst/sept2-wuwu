@@ -15,8 +15,8 @@ public interface PlayerItemDao {
     @Insert("INSERT INTO playerItem VALUES (#{playerId},#{id},#{count})")
     PlayerItem save(PlayerItem playerItem);
 
-    @Select("SELECT * FROM playerItem")
-    List<PlayerItem> findAll();
+    @Select("SELECT * FROM playerItem where player_id=#{playerId}}")
+    List<PlayerItem> findAll(Long playerId);
 
     @Update("UPDATE playerItem SET count=#{count} WHERE player_id=#{playerId} AND id=#{id}")
     int update(PlayerItem playerItem);
