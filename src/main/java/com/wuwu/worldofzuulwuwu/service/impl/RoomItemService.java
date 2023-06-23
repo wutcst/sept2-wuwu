@@ -4,6 +4,7 @@ import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.RoomItemDao;
+import java.util.List;
 import zuul.ItemSetting;
 import zuul.Room;
 import zuul.RoomId;
@@ -36,7 +37,8 @@ public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomIte
   }
 
   @Override
-  public String lookUpAllItems(Long playerId, Room room) {
-    return null;
+  public List<RoomItem> lookUpAllItems(Long playerId, Room room) {
+    List<RoomItem> itemList = roomItemDao.findAll(playerId, RoomId.getRoomId(room.getName()));
+    return itemList;
   }
 }
