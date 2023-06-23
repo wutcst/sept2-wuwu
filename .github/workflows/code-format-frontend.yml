@@ -49,7 +49,7 @@ jobs:
         run: pwd
       
       - name: change directory
-        run: cd ./vue-zuul
+        run: cd vue-zuul
       
       - name: list latest
         run: ls -a
