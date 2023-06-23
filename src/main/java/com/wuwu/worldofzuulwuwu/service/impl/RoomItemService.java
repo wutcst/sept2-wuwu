@@ -34,4 +34,9 @@ public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomIte
 
     return result > 0;
   }
+
+  @Override
+  public String lookUpAllItems(Long playerId, Room room) {
+    return null;
+  }
 }
