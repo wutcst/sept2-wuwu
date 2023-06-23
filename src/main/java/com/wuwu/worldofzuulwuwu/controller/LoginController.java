@@ -32,7 +32,7 @@ public class LoginController {
         player.setPassword(password);
         Long id = playerService.login(player);
         if(id!=null){
-            httpSession.getAttribute("playerId",id);
+            httpSession.setAttribute("playerId",id);
             return new Result(1,"success","success login");
         }
         else{
