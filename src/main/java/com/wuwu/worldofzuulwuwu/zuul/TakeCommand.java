@@ -48,7 +48,11 @@ public class TakeCommand extends Command{
     if(item==null){
       return "There is no such item.";
     }else{
-      //TODO 考虑拿不起来的情况
+      Integer capacity = playerService.getCapacity(playerId);
+      if(capacity < ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight()){
+        return "You don't have enough capacity.";
+      }
+
       playerItemService.addItem(playerId, itemName);
       roomItemService.removeItem(playerId, currentRoom.getName(), itemName);
       return "You took " + itemName;

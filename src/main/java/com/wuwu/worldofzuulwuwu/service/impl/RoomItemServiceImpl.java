@@ -1,6 +1,8 @@
 package com.wuwu.worldofzuulwuwu.service.impl;
 
+import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
+import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import com.wuwu.worldofzuulwuwu.mapper.RoomItemDao;
 import java.util.List;
 
@@ -13,11 +15,12 @@ import org.springframework.stereotype.Service;
 public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
   @Autowired
   private RoomItemDao roomItemDao;
+  @Autowired
+  private PlayerDao playerDao;
 
   @Override
   public Boolean removeItem(Long playerId, String roomName, String itemName){
 
-    //TODO 移除物品时改变玩家容量
     Integer itemId = ItemSetting.getId(itemName);
     Integer roomId = RoomId.getRoomId(roomName);
 
