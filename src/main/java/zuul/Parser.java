@@ -32,9 +32,9 @@ public class Parser
         return command;
     }
 
-    public List<String> showCommands()
+    public String showCommands()
     {
-        commands.showAll();
+        return commands.showAll();
     }
 }
 
