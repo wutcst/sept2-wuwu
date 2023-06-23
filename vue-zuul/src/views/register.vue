@@ -93,7 +93,7 @@ export default {
                 type: "success",
                 message: "注册成功"
               })
-              this.$router.push("/login");//注册成功后的页面跳转
+              this.$router.push("/login");
             }
             /* code码为0是注册失败 */
             else {

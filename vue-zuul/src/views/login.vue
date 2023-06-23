@@ -62,6 +62,8 @@ export default {
       this.$refs["form"].validate((valid) => {
         if (valid) {
           /* login界面发送post请求更合适，传表单数据的username和password给后端 */
+          /* 成功的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/login1 */
+          /* 失败的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/login2 */
           axios.post('http://yapi.smart-xwork.cn/mock/264710/yapi/login1', { "username": this.form.username, 'password': this.form.password }).then((result) => {
             console.log(result);
             if (result.data.code === 1) {
