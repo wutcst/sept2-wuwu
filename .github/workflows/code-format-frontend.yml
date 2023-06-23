@@ -2,11 +2,9 @@ name: Code Format Check Front End
 
 on:
   push:
-    branches:
-      - linrifen
+    branches: [ "master", "linrifen" ]
   pull_request:
-    branches:
-      - dev
+    branches: [ "master", "dev" ]
 
 jobs:
   code_format_check:
