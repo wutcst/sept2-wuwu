@@ -9,7 +9,7 @@ public class ItemSetting {
 
   static {
     itemMap.put(1, new Item("gem", "This gem looks worth 100 million.", 1));
-    itemMap.put(2, new Item("gold cup", "This gold cup used to contain holy water", 4));
+    itemMap.put(2, new Item("gold_cup", "This gold_cup used to contain holy water", 4));
     itemMap.put(3, new Item("cookie1", "The cookie can give you power.", 1));
     itemMap.put(4, new Item("lantern", "A tool that can allow you see things in darkness.", 2));
     itemMap.put(5, new Item("crown", "It seemed to belong to a king.", 2));
@@ -19,7 +19,7 @@ public class ItemSetting {
     itemMap.put(9, new Item("ring", "The legendary magic ring used to be owned by a Hobbit", 1));
 
     itemIdMap.put("gem", 1);
-    itemIdMap.put("gold cup", 2);
+    itemIdMap.put("gold_cup", 2);
     itemIdMap.put("cookie1", 3);
     itemIdMap.put("lantern", 4);
     itemIdMap.put("crown", 5);

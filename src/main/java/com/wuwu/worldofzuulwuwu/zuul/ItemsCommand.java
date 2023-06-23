@@ -3,7 +3,9 @@ package com.wuwu.worldofzuulwuwu.zuul;
 import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ItemsCommand extends Command{
 
   private static PlayerItemService playerItemService;

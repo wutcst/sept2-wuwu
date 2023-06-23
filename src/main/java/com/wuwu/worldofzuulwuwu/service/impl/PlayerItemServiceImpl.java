@@ -27,8 +27,9 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
 
     capacity -= itemWeight;
+    player.setCapacity(capacity);
 
-    playerDao.save(player);
+    playerDao.update(player);
 
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
@@ -48,8 +49,9 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
 
     capacity += itemWeight;
+    player.setCapacity(capacity);
 
-    playerDao.save(player);
+    playerDao.update(player);
 
 
 
@@ -78,6 +80,9 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
           .append("] [").append(item.getWeight()).append("]\n");
 
     }
+
+    Player player = playerDao.findById(playerId);
+    msg.append("Your capacity is ").append(player.getCapacity());
     return msg.toString();
   }
 }
