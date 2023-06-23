@@ -1,7 +1,10 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
+@Component
 public class Parser
 {
     private CommandWords commands;  // holds all valid command words
