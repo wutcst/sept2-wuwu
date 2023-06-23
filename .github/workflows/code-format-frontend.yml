@@ -51,6 +51,12 @@ jobs:
       - name: change directory
         run: cd ./vue-zuul
       
+      - name: list latest
+        run: ls -a
+        
+      - name: get current info latest
+        run: pwd
+        
       - name: Install dependencies
         run: npm install
 
