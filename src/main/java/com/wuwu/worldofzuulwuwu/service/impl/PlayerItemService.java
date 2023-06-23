@@ -3,10 +3,12 @@ package com.wuwu.worldofzuulwuwu.service.impl;
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import zuul.ItemSetting;
 
 public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.PlayerItemService {
 
+  @Autowired
   private PlayerItemDao playerItemDao;
 
   public Boolean addItem(Long playerId, String item){
