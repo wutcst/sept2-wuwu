@@ -6,7 +6,7 @@ on:
       - linrifen
   pull_request:
     branches:
-      - linrifen
+      - dev
 
 jobs:
   code_format_check:
