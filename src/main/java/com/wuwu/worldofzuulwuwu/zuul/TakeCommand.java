@@ -1,29 +1,37 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
+import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import com.wuwu.worldofzuulwuwu.service.RoomItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class TakeCommand extends Command{
 
+  @Autowired
+  private PlayerService playerService;
+  @Autowired
+  private PlayerItemService playerItemService;
+  @Autowired
+  private RoomItemService roomItemService;
+
   @Override
-  public boolean execute(Game game) {
+  public String execute(Long playerId) {
     //未指明要获取什么物品
     if(!hasSecondWord()){
-      System.out.println("take what?");
-      return false;
+      return "take what?";
     }
 
-    //从房间查找该物品
+    Integer roomId = playerService.getCurrentRoom(playerId);
+    Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(roomId));
     String itemName = getSecondWord();
-    Room currentRoom = game.getCurrentRoom();
-    Item item = currentRoom.getItems().get(itemName);
 
-    //返回提示信息
+    Item item = ItemSetting.getItem(ItemSetting.getId(itemName));
     if(item==null){
-      System.out.println("There is no such item.");
+      return "There is no such item.";
     }else{
-      currentRoom.getItems().removeItem(item);
-      game.getInventory().addItem(item);
-      System.out.println("You took " + itemName);
+      playerItemService.addItem(playerId, itemName);
+      roomItemService.removeItem(playerId, currentRoom.getName(), itemName);
+      return "You took " + itemName;
     }
-
-    return false;
   }
 }

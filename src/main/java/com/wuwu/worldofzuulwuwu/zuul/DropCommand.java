@@ -1,28 +1,38 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
+import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import com.wuwu.worldofzuulwuwu.service.RoomItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class DropCommand extends Command{
 
+  @Autowired
+  private PlayerService playerService;
+  @Autowired
+  private PlayerItemService playerItemService;
+  @Autowired
+  private RoomItemService roomItemService;
+
   @Override
-  public boolean execute(Game game) {
+  public String execute(Long playerId) {
 
     if(!hasSecondWord()){
-      System.out.println("drop what?");
-      return false;
+      return "drop what?";
     }
 
-    Room currentRoom = game.getCurrentRoom();
-    Inventory inventory = game.getInventory();
+    Integer roomId = playerService.getCurrentRoom(playerId);
+    Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(roomId));
     String itemName = getSecondWord();
 
-    Item item = inventory.get(itemName);
+    Item item = ItemSetting.getItem(ItemSetting.getId(itemName));
     if(item==null){
-      System.out.println("You don't own this item.");
+      return "You don't own this item.";
     }else{
-      inventory.removeItem(item);
-      currentRoom.getItems().addItem(item);
-      System.out.println("You dropped " + itemName);
+      playerItemService.removeItem(playerId, itemName);
+      roomItemService.addItem(playerId, currentRoom.getName(), itemName);
+      return "You dropped " + itemName;
     }
 
-    return false;
   }
 }

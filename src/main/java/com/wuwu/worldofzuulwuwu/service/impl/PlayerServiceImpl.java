@@ -4,7 +4,7 @@ import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.PlayerService {
+public class PlayerService implements com.wuwu.worldofzuulwuwu.service.PlayerService {
 
   @Autowired
   private PlayerDao playerDao;
@@ -35,8 +35,7 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
   public Boolean setCurrentRoom(Long id, Integer roomId){
     Player player = playerDao.findById(id);
     player.setCurrentRoom(roomId);
-    int update = playerDao.update(player);
-    return update!=0;
+    playerDao.update(player);
   }
 
 }

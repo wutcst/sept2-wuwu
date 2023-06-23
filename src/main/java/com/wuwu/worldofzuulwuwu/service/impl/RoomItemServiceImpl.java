@@ -1,13 +1,17 @@
 package com.wuwu.worldofzuulwuwu.service.impl;
 
+import com.wuwu.worldofzuulwuwu.entity.Player;
+import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.RoomItemDao;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
-import com.wuwu.worldofzuulwuwu.zuul.Room;
-import com.wuwu.worldofzuulwuwu.zuul.RoomId;
+import zuul.ItemSetting;
+import zuul.Room;
+import zuul.RoomId;
+import zuul.RoomSetting;
 
-public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
+public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
   @Autowired
   private RoomItemDao roomItemDao;
 

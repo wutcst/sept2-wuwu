@@ -5,8 +5,8 @@ import java.util.List;
 import com.wuwu.worldofzuulwuwu.zuul.Room;
 
 public interface RoomItemService {
-  Boolean addItem(Long playerId, String item);
-  Boolean removeItem(Long playerId, Room room, String itemName);
-  List<RoomItem> lookUpAllItems(Long playerId, Room room);
+  Boolean addItem(Long playerId, String roomName, String itemName);
+  Boolean removeItem(Long playerId, String roomName, String itemName);
 
+  List<RoomItem> lookUpAllItems(Long playerId, String roomName);
 }

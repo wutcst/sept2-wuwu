@@ -18,6 +18,9 @@ public interface PlayerItemDao {
     @Select("SELECT * FROM playerItem where player_id=#{playerId}}")
     List<PlayerItem> findAll(Long playerId);
 
+    @Select("SELECT * FROM playerItem where player_id=#{playerId}}")
+    List<PlayerItem> findByName(Long playerId);
+
     @Update("UPDATE playerItem SET count=#{count} WHERE player_id=#{playerId} AND id=#{id}")
     int update(PlayerItem playerItem);
 

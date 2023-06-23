@@ -2,14 +2,13 @@ package com.wuwu.worldofzuulwuwu.zuul;
 
 public class QuitCommand extends Command
 {
-    public boolean execute(Game game)
+    public String execute(Long playerId)
     {
         if(hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
+            return "Quit what?";
         }
         else {
-            return true;  // signal that we want to quit
+            return "Bye.";
         }
     }
 }
