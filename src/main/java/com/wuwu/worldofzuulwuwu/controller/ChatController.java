@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.wuwu.worldofzuulwuwu.zuul.Command;
 import com.wuwu.worldofzuulwuwu.zuul.Parser;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -17,14 +19,15 @@ import java.util.Map;
  * @Description: 聊天数据处理
  */
 @Controller
-@RequestMapping("./main")
+@RequestMapping("/main")
+@ResponseBody
 public class ChatController {
 
     @Autowired
     private Parser parser;
 
     @PostMapping
-    public Result processMessage(Map<String,String> data, HttpSession httpSession){
+    public Result processMessage(@RequestParam Map<String,String> data, HttpSession httpSession){
         String command = data.get("command");
         Command parserCommand = parser.getCommand(command);
         String playerId = (String)httpSession.getAttribute("playerId");

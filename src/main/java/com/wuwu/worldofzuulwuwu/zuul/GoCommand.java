@@ -1,5 +1,6 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import com.wuwu.worldofzuulwuwu.common.Record;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.wuwu.worldofzuulwuwu.service.impl.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class GoCommand extends Command
 
         String direction = getSecondWord();
 
-
-        Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(playerService.getCurrentRoom(playerId)));
+        RoomId roomId = RoomSetting.roomIds.get(playerService.getCurrentRoom(playerId));
+        Room currentRoom = RoomSetting.rooms.get(roomId);
 
         Room nextRoom = currentRoom.getExit(direction);
 
@@ -26,6 +27,7 @@ public class GoCommand extends Command
             return "There is no door!";
         }
         else {
+            Record.record(playerId,roomId);
             playerService.setCurrentRoom(playerId, RoomId.getRoomId(nextRoom.getName()));
             return nextRoom.getLongDescription();
         }

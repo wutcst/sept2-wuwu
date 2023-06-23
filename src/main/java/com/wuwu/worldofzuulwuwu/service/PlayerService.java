@@ -1,6 +1,7 @@
 package com.wuwu.worldofzuulwuwu.service;
 
 import com.wuwu.worldofzuulwuwu.entity.Player;
+import org.springframework.stereotype.Service;
 
 public interface PlayerService {
   Boolean register(Player player);

@@ -13,7 +13,7 @@ public interface PlayerDao {
     int update(Player player);
 
     @Insert("INSERT INTO player VALUES (#{id},#{name},#{password},#{currentRoom},#{capacity})")
-    Player save(Player player);
+    int save(Player player);
 
     @Select("SELECT * FROM player WHERE id=#{id}")
     Player findById(Long id);

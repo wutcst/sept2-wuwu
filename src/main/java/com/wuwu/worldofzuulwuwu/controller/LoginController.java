@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -17,14 +19,16 @@ import java.util.Map;
  * @Description: 用户登录
  */
 @Controller
-@RequestMapping("./login")
+@RequestMapping("/login")
+@ResponseBody
+
 public class LoginController {
 
     @Autowired
     private PlayerService playerService;
 
     @PostMapping
-    public Result login(Map<String,String> data, HttpSession httpSession){
+    public Result login(@RequestParam Map<String,String> data, HttpSession httpSession){
         String username = data.get("username");
         String password = data.get("password");
         Player player=new Player();

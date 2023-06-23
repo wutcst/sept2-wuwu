@@ -13,7 +13,7 @@ public interface PlayerItemDao {
     PlayerItem findOne(Long playerId,@Param("id") Integer itemId);
 
     @Insert("INSERT INTO playerItem VALUES (#{playerId},#{id},#{count})")
-    PlayerItem save(PlayerItem playerItem);
+    int save(PlayerItem playerItem);
 
     @Select("SELECT * FROM playerItem where player_id=#{playerId}}")
     List<PlayerItem> findAll(Long playerId);
