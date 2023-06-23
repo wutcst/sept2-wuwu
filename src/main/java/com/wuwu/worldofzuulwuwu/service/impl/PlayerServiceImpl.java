@@ -35,12 +35,8 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
   public Boolean setCurrentRoom(Long id, Integer roomId){
     Player player = playerDao.findById(id);
     player.setCurrentRoom(roomId);
-<<<<<<<<< Temporary merge branch 1:src/main/java/com/wuwu/worldofzuulwuwu/service/impl/PlayerService.java
     return playerDao.update(player) > 0;
-=========
-    int update = playerDao.update(player);
-    return update!=0;
->>>>>>>>> Temporary merge branch 2:src/main/java/com/wuwu/worldofzuulwuwu/service/impl/PlayerServiceImpl.java
+
   }
 
 
