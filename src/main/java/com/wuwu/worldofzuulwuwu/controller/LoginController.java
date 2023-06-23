@@ -3,6 +3,7 @@ package com.wuwu.worldofzuulwuwu.controller;
 import com.wuwu.worldofzuulwuwu.common.Result;
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,13 +24,19 @@ public class LoginController {
     private PlayerService playerService;
 
     @PostMapping
-    public Result login(Map<String,String> data){
+    public Result login(Map<String,String> data, HttpSession httpSession){
         String username = data.get("username");
         String password = data.get("password");
         Player player=new Player();
         player.setName(username);
         player.setPassword(password);
-        Boolean ok = playerService.login(player);
-        return new Result(ok?1:0,"","");
+        Long id = playerService.login(player);
+        if(id!=null){
+            httpSession.getAttribute("playerId",id);
+            return new Result(1,"success","success login");
+        }
+        else{
+            return new Result(0,"error","error login");
+        }
     }
 }

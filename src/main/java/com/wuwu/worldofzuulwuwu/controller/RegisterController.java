@@ -33,6 +33,11 @@ public class RegisterController {
         player.setCurrentRoom(0);
         player.setCapacity(10);
         Boolean ok = playerService.register(player);
-        return new Result(ok?1:0,"","");
+        if(ok){
+            return new Result(1,"success","success register");
+        }
+        else{
+            return new Result(0,"error","error register");
+        }
     }
 }
