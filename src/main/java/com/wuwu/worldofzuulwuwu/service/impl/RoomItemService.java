@@ -27,7 +27,7 @@ public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomIte
 
     RoomItem roomItem = new RoomItem();
     roomItem.setPlayerId(playerId);
-    roomItem.setRoomId(RoomId.valueOf(room.getName()).ordinal());
+    roomItem.setRoomId(RoomId.getRoomId(room.getName()));
     roomItem.setId(ItemSetting.getId(itemName));
 
     int result = roomItemDao.delete(roomItem);
