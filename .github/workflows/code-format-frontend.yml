@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: change branch
-        uses: actions/javascript-action@linrifen
+        uses: actions/javascript-action@master
       
       - name: Checkout code
         uses: actions/checkout@v3
