@@ -1,7 +1,6 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class CommandWords
 {
@@ -16,6 +15,7 @@ public class CommandWords
         commands.put("look", new LookCommand());
         commands.put("take", new TakeCommand());
         commands.put("drop", new DropCommand());
+        commands.put("back",new BackCommand());
     }
 
     public Command get(String word)

@@ -1,4 +1,4 @@
-package com.wuwu.worldofzuulwuwu.zuul
+package com.wuwu.worldofzuulwuwu.zuul;
 
 import com.wuwu.worldofzuulwuwu.zuul.Command;
 import com.wuwu.worldofzuulwuwu.zuul.CommandWords;
