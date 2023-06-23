@@ -1,6 +1,5 @@
-package zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Parser

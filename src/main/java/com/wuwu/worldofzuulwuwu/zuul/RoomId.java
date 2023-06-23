@@ -1,6 +1,4 @@
-package zuul;
-
-import java.util.HashMap;
+package com.wuwu.worldofzuulwuwu.zuul;
 
 public enum RoomId {
     ENTRANCE(0), COOKIE_ROOM(1), CAVE(2), TREASURE_ROOM(3), DARKROOM(4), LOBBY(5), WEAPON_ROOM(6), JAIL(7), READING_ROOM(8), SECRET_ROOM(9),

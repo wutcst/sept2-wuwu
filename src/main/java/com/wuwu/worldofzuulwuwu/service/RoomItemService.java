@@ -2,7 +2,7 @@ package com.wuwu.worldofzuulwuwu.service;
 
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import java.util.List;
-import zuul.Room;
+import com.wuwu.worldofzuulwuwu.zuul.Room;
 
 public interface RoomItemService {
   Boolean addItem(Long playerId, String item);

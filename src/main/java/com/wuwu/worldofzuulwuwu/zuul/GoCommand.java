@@ -1,4 +1,4 @@
-package zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
 import com.wuwu.worldofzuulwuwu.service.impl.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

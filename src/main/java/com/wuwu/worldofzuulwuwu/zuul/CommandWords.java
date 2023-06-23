@@ -1,10 +1,7 @@
-package zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
-import java.io.BufferedWriter;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 public class CommandWords
 {

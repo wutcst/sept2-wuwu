@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zuul.Command;
-import zuul.Parser;
+import com.wuwu.worldofzuulwuwu.zuul.Command;
+import com.wuwu.worldofzuulwuwu.zuul.Parser;
 
 import java.util.Map;
 

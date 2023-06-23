@@ -1,4 +1,4 @@
-package zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
 public class LookCommand extends Command{
 

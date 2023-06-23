@@ -1,4 +1,4 @@
-package zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
 import java.util.HashMap;
 
