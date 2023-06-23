@@ -1,4 +1,7 @@
-package cn.edu.whut.sept.zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
+
+import org.springframework.stereotype.Component;
+
 
 public abstract class Command
 {
@@ -24,5 +27,5 @@ public abstract class Command
         this.secondWord = secondWord;
     }
 
-    public abstract boolean execute(Game game);
+    public abstract String execute(Long playerId);
 }

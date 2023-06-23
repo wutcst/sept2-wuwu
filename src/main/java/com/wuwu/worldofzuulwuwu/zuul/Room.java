@@ -1,17 +1,23 @@
-package cn.edu.whut.sept.zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
-import java.util.Set;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
+import java.util.Set;
 
+@Slf4j
 public class Room
 {
+    private String name;
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    private Inventory items;
 
     public Room(String description)
     {
         this.description = description;
         exits = new HashMap<>();
+        items = new Inventory();
     }
 
     public void setExit(String direction, Room neighbor)
@@ -41,7 +47,22 @@ public class Room
 
     public Room getExit(String direction)
     {
+        log.info(getExitString());
+        log.info(direction);
+        log.info(exits.toString());
         return exits.get(direction);
+    }
+
+    public Inventory getItems() {
+        return items;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

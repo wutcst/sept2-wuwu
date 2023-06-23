@@ -1,27 +1,26 @@
-package cn.edu.whut.sept.zuul;
+package com.wuwu.worldofzuulwuwu.zuul;
 
+import com.wuwu.worldofzuulwuwu.zuul.Command;
+import com.wuwu.worldofzuulwuwu.zuul.CommandWords;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 import java.util.Scanner;
 
+@Component
 public class Parser
 {
     private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
 
     public Parser()
     {
         commands = new CommandWords();
-        reader = new Scanner(System.in);
     }
 
-    public Command getCommand()
+    public Command getCommand(String inputLine)
     {
-        String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
-
-        System.out.print("> ");     // print prompt
-
-        inputLine = reader.nextLine();
 
         Scanner tokenizer = new Scanner(inputLine);
         if(tokenizer.hasNext()) {
@@ -38,9 +37,9 @@ public class Parser
         return command;
     }
 
-    public void showCommands()
+    public String showCommands()
     {
-        commands.showAll();
+        return commands.showAll();
     }
 }
 
