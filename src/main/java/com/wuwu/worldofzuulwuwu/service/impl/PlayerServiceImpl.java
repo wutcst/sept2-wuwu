@@ -4,7 +4,7 @@ import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PlayerService implements com.wuwu.worldofzuulwuwu.service.PlayerService {
+public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.PlayerService {
 
   @Autowired
   private PlayerDao playerDao;
