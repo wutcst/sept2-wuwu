@@ -11,5 +11,6 @@ public interface PlayerService {
   Boolean setCurrentRoom(Long id, Integer roomId);
 
   String getName(Long id);
+  Integer getCapacity(Long id);
 
 }

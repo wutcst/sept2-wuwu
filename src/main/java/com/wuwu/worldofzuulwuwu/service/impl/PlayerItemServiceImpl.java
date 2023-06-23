@@ -1,6 +1,8 @@
 package com.wuwu.worldofzuulwuwu.service.impl;
 
+import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
+import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
@@ -12,9 +14,20 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
   @Autowired
   private PlayerItemDao playerItemDao;
 
+  @Autowired
+  private PlayerDao playerDao;
+
   public Boolean addItem(Long playerId, String itemName){
 
-    //TODO 添加物品时改变玩家容量
+    Player player = playerDao.findById(playerId);
+    Integer capacity = player.getCapacity();
+
+    Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
+
+    capacity -= itemWeight;
+
+    playerDao.save(player);
+
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
     playerItem.setId(ItemSetting.getId(itemName));
@@ -27,7 +40,18 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
 
   public Boolean removeItem(Long playerId, String itemName){
 
-  Integer itemId = ItemSetting.getId(itemName);
+    Player player = playerDao.findById(playerId);
+    Integer capacity = player.getCapacity();
+
+    Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
+
+    capacity += itemWeight;
+
+    playerDao.save(player);
+
+
+
+    Integer itemId = ItemSetting.getId(itemName);
 
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
