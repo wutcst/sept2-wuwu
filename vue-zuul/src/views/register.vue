@@ -95,6 +95,7 @@ export default {
               })
               this.$router.push("/login");//注册成功后的页面跳转
             }
+            /* code码为0是注册失败 */
             else {
               this.$message({
                 type: "error",

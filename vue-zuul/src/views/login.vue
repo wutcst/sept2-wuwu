@@ -41,17 +41,9 @@ export default {
     return {
       form: {},
       rules: {
-        /* username字段的验证规则为一个数组，其中包含了一个对象。这个对象的属性包括：
-          required：表示该字段为必填字段。
-          message：表示当该字段未填写时，提示的错误信息为"请输入用户名"。
-          trigger：表示触发验证的方式为"blur"，即在输入框失去焦点时进行验证。 */
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
         ],
-        /* password字段的验证规则也为一个数组，其中包含了一个对象。这个对象的属性包括：
-           required：表示该字段为必填字段。
-           message：表示当该字段未填写时，提示的错误信息为"请输入密码"。
-           trigger：表示触发验证的方式为"blur"，即在输入框失去焦点时进行验证。 */
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
     };
