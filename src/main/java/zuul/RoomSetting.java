@@ -10,6 +10,7 @@ import lombok.val;
  */
 public class RoomSetting {
     public static HashMap<RoomId, Room> rooms=new HashMap<>();
+    public static HashMap<Integer,RoomId> roomIds=new HashMap<>();
     static {
         rooms.put(RoomId.ENTRANCE, new Room("in a dungeon. Your journey for enormous treasure begins here."));
         rooms.put(RoomId.CAVE, new Room("in a cave. There is something glowing on the walls."));
@@ -69,6 +70,7 @@ public class RoomSetting {
             var room = t.getValue();
             var id  =t.getKey();
             room.setName(id.toString().toLowerCase());
+            roomIds.put(id.getId(),id);
         }
     }
 
