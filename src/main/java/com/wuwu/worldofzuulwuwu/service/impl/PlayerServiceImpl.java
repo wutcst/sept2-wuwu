@@ -10,6 +10,10 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
   private PlayerDao playerDao;
 
   public Boolean register(Player player){
+    Player player0 = playerDao.findByName(player.getName());
+    if(player0!=null){
+      return false;
+    }
     Player player1 = playerDao.save(player);
     if(player1!=null){
       return true;
