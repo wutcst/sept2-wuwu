@@ -19,6 +19,12 @@ jobs:
         with:
           node-version: 18.16.0
       
+      - name: print info
+        run: echo currentdir
+      
+      - name: get current info
+        run: pwd
+      
       - name: change directory
         run: cd ./vue-zuul
       
