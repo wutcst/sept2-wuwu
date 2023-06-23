@@ -5,9 +5,12 @@ on:
     branches:
       - wangyuze  # 当push到wangyuze分支触发
       - wangjinyu  # 当push到wangjinyu分支触发
+      - dev  # 当push到dev分支触发
+      - master  # 当push到master分支触发
   pull_request:
     branches:
       - dev  # 当pr到dev分支时触发
+      - master  # 当pr到master分支时触发
 
 jobs:
   code_format_check:
@@ -16,11 +19,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2  # 使用命令actions/checkout检出代码
+        with: 
+          ref: wangyuze
 
       - name: Set up Java
         uses: actions/setup-java@v2  # 使用命令actions/setup-java设置 Java 环境
         with:
-          java-version: '17'  # 本项目使用的 Java 版本
+          java-version: '8'  # 本项目使用的 Java 版本
 
       - name: Build with Maven
         run: mvn clean package  # 清除项目目录中的旧构建文件 package 表示生成项目的可执行 JAR 文件或 WAR 文件
