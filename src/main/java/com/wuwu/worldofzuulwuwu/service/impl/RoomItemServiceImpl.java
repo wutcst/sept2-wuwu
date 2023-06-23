@@ -8,7 +8,7 @@ import zuul.ItemSetting;
 import zuul.Room;
 import zuul.RoomId;
 
-public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
+public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
   @Autowired
   private RoomItemDao roomItemDao;
 
