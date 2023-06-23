@@ -29,12 +29,10 @@ public class CommandWords
     public String showAll()
     {
 
-        String all=null;
-        for(Iterator i = commands.keySet().iterator(); i.hasNext(); ) {
-            System.out.print(i.next() + "  ");
+        StringBuilder all= new StringBuilder();
+        for (String s : commands.keySet()) {
+            all.append(s).append(" ");
         }
-        System.out.println();
-
-        return all;
+        return all.toString();
     }
 }
