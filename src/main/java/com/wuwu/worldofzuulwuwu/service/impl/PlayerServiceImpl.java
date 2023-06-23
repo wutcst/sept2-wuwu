@@ -14,12 +14,7 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
     if(player0!=null){
       return false;
     }
-    Player player1 = playerDao.save(player);
-    if(player1!=null){
-      return true;
-    }else{
-      return false;
-    }
+    return playerDao.save(player) > 0;
   }
 
   public Long login(Player player){
