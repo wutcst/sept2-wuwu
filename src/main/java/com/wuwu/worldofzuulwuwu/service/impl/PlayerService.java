@@ -27,4 +27,15 @@ public class PlayerService implements com.wuwu.worldofzuulwuwu.service.PlayerSer
     }
   }
 
+  public Integer getCurrentRoom(Long id){
+    Player player = playerDao.findById(id);
+    return player.getCurrentRoom();
+  }
+
+  public Boolean setCurrentRoom(Long id, Integer roomId){
+    Player player = playerDao.findById(id);
+    player.setCurrentRoom(roomId);
+    playerDao.update(player);
+  }
+
 }

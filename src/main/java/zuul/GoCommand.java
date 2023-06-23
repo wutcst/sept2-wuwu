@@ -1,27 +1,32 @@
 package zuul;
 
+import com.wuwu.worldofzuulwuwu.service.impl.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class GoCommand extends Command
 {
-    public boolean execute(Game game)
+    @Autowired
+    private PlayerService playerService;
+
+    public String execute(Long playerId)
     {
         if(!hasSecondWord()) {
-            System.out.println("Go where?");
-            return false;
+            return "go where?";
         }
 
         String direction = getSecondWord();
-        Room currentRoom = game.getCurrentRoom();
+
+
+        Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(playerService.getCurrentRoom(playerId)));
 
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            return "There is no door!";
         }
         else {
-            game.setCurrentRoom(nextRoom);
-            System.out.println(nextRoom.getLongDescription());
+            playerService.setCurrentRoom(playerId, RoomId.getRoomId(nextRoom.getName()));
+            return nextRoom.getLongDescription();
         }
-
-        return false;
     }
 }
