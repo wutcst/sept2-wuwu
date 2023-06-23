@@ -4,7 +4,9 @@ import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.PlayerItemService {
 
   @Autowired

@@ -3,7 +3,9 @@ package com.wuwu.worldofzuulwuwu.service.impl;
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.PlayerService {
 
   @Autowired

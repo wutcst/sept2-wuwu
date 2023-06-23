@@ -7,7 +7,9 @@ import java.util.List;
 import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
 import com.wuwu.worldofzuulwuwu.zuul.RoomId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
   @Autowired
   private RoomItemDao roomItemDao;
