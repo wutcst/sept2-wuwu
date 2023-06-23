@@ -2,11 +2,10 @@ package zuul;
 
 public class GoCommand extends Command
 {
-    public boolean execute(Game game)
+    public String execute(Long playerId)
     {
         if(!hasSecondWord()) {
-            System.out.println("Go where?");
-            return false;
+            return "go where?";
         }
 
         String direction = getSecondWord();
@@ -15,7 +14,7 @@ public class GoCommand extends Command
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            return "There is no door!";
         }
         else {
             game.setCurrentRoom(nextRoom);
