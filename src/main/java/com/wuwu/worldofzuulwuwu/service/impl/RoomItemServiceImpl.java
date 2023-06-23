@@ -2,11 +2,11 @@ package com.wuwu.worldofzuulwuwu.service.impl;
 
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.RoomItemDao;
+import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
+import com.wuwu.worldofzuulwuwu.zuul.RoomId;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import zuul.ItemSetting;
-import zuul.Room;
-import zuul.RoomId;
+
 
 public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
   @Autowired
