@@ -1,7 +1,13 @@
 package zuul;
 
+import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class HelpCommand extends Command
 {
+
+    @Autowired
+    private PlayerService playerService;
     private CommandWords commandWords;
 
     public HelpCommand(CommandWords words)
@@ -9,13 +15,15 @@ public class HelpCommand extends Command
         commandWords = words;
     }
 
-    public boolean execute(Game game)
+    public String execute(Long playerId)
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your command words are:");
-        commandWords.showAll();
-        return false;
+
+        String playerName = playerService.getName(playerId);
+        String msg = "";
+        msg += "Your name is " + playerName + ".\n";
+        msg += "You went down to the dungeon, a place is said to hide great treasure.\n";
+        msg += "Your command words are:\n";
+        msg += commandWords.showAll();
+        return msg;
     }
 }
