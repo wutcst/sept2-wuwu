@@ -15,5 +15,7 @@ public interface PlayerDao {
     @Insert("INSERT INTO player VALUES (#{id},#{name},#{password},#{currentRoom},#{capacity})")
     Player save(Player player);
 
+    @Select("SELECT * FROM player WHERE id=#{id}")
+    Player findById(Long id);
 
 }

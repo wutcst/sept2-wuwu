@@ -1,7 +1,10 @@
 package zuul;
 
+import java.io.BufferedWriter;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class CommandWords
 {
@@ -23,11 +26,15 @@ public class CommandWords
         return (Command)commands.get(word);
     }
 
-    public void showAll()
+    public String showAll()
     {
+
+        String all=null;
         for(Iterator i = commands.keySet().iterator(); i.hasNext(); ) {
             System.out.print(i.next() + "  ");
         }
         System.out.println();
+
+        return all;
     }
 }
