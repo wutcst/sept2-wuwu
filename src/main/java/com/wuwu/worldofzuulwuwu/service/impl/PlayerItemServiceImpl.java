@@ -4,6 +4,8 @@ import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
+import com.wuwu.worldofzuulwuwu.zuul.Item;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
 import org.springframework.stereotype.Service;
@@ -58,5 +60,24 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     playerItem.setId(itemId);
 
     return playerItemDao.delete(playerItem) > 0;
+  }
+
+  @Override
+  public String getItemsDescription(Long playerId) {
+    List<PlayerItem> playerItems = playerItemDao.findAll(playerId);
+    StringBuilder msg = new StringBuilder();
+    if(playerItems.isEmpty()){
+      msg.append("You don't have anything.");
+      return msg.toString();
+    }
+
+    msg.append("You have following items: \n");
+    for(PlayerItem playerItem : playerItems){
+      Item item = ItemSetting.getItem(playerItem.getId());
+      msg.append("[").append(item.getName()).append("] [").append(item.getDescription())
+          .append("] [").append(item.getWeight()).append("]\n");
+
+    }
+    return msg.toString();
   }
 }
