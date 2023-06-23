@@ -58,7 +58,9 @@ jobs:
         run: pwd
         
       - name: Install dependencies
+        working-directory: /home/runner/work/sept2-wuwu/sept2-wuwu/vue-zull
         run: npm install
 
       - name: Code Format Check
+        working-directory: /home/runner/work/sept2-wuwu/sept2-wuwu/vue-zull
         run: npm run lint
