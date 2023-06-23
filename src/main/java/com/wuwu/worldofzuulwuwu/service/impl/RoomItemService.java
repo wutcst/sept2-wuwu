@@ -4,13 +4,15 @@ import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.RoomItemDao;
-import java.util.List;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import zuul.ItemSetting;
 import zuul.Room;
 import zuul.RoomId;
 import zuul.RoomSetting;
 
 public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomItemService {
+  @Autowired
   private RoomItemDao roomItemDao;
 
   public Boolean addItem(Long playerId, String item){
@@ -30,15 +32,8 @@ public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomIte
     roomItem.setPlayerId(playerId);
     roomItem.setRoomId(RoomId.getRoomId(room.getName()));
     roomItem.setId(ItemSetting.getId(itemName));
-
     int result = roomItemDao.delete(roomItem);
 
     return result > 0;
-  }
-
-  @Override
-  public List<RoomItem> lookUpAllItems(Long playerId, Room room) {
-    List<RoomItem> itemList = roomItemDao.findAll(playerId, RoomId.getRoomId(room.getName()));
-    return itemList;
   }
 }

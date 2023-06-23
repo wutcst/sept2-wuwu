@@ -34,7 +34,7 @@ class WorldOfZuulWuwuApplicationTests {
 		playerDao.update(player);
 
 		PlayerItem playerItem = playerItemDao.findOne(0L, 0);
-		List<PlayerItem> itemList = playerItemDao.findAll();
+		List<PlayerItem> itemList = playerItemDao.findAll(0L);
 
 		List<RoomItem> byRoomId = roomItemDao.findAll(0L, 0);
 		RoomItem one = roomItemDao.findOne(0L, 0, 0);

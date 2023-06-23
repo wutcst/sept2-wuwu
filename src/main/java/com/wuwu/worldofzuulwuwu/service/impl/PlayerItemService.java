@@ -2,15 +2,13 @@ package com.wuwu.worldofzuulwuwu.service.impl;
 
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
-import com.wuwu.worldofzuulwuwu.entity.RoomItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import zuul.ItemSetting;
-import zuul.Room;
-import zuul.RoomId;
 
 public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.PlayerItemService {
 
+  @Autowired
   private PlayerItemDao playerItemDao;
 
   public Boolean addItem(Long playerId, String item){
@@ -35,11 +33,5 @@ public class PlayerItemService implements com.wuwu.worldofzuulwuwu.service.Playe
     int result = playerItemDao.delete(playerItem);
 
     return result > 0;
-  }
-
-  @Override
-  public List<PlayerItem> lookUpAllItems(Long playerId) {
-    List<RoomItem> itemList = playerItemDao.findAll();
-    return itemList;
   }
 }
