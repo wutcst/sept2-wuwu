@@ -12,6 +12,7 @@ import java.util.LinkedList;
  * @create: 2023-06-23 16:04
  * @Description: 玩家房间位置记录
  */
+
 public class Record {
     private static HashMap<Long, LinkedList<RoomId>> records=new HashMap<>();
     public static void record(Long player_id,RoomId roomId){

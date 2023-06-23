@@ -19,9 +19,9 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     playerItem.setId(ItemSetting.getId(itemName));
     playerItem.setCount(1);
 
-    PlayerItem playerItem1 = playerItemDao.save(playerItem);
+    int playerItem1 = playerItemDao.save(playerItem);
 
-    return playerItem1 != null;
+    return playerItem1 > 0;
   }
 
   public Boolean removeItem(Long playerId, String itemName){

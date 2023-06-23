@@ -12,8 +12,9 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
   private PlayerDao playerDao;
 
   public Boolean register(Player player){
-    Player player1 = playerDao.save(player);
-    if(player1!=null){
+
+    int player1 = playerDao.save(player);
+    if(player1>0){
       return true;
     }else{
       return false;
@@ -22,7 +23,7 @@ public class PlayerServiceImpl implements com.wuwu.worldofzuulwuwu.service.Playe
 
   public Long login(Player player){
     Player player1 = playerDao.findByName(player.getName());
-    if(player1.getPassword().equals(player.getPassword())){
+    if(player1!=null && player1.getPassword().equals(player.getPassword())){
       return player.getId();
     }else{
       return null;

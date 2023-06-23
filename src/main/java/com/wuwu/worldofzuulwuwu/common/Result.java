@@ -5,6 +5,7 @@ package com.wuwu.worldofzuulwuwu.common;
  * @create: 2023-06-22 17:36
  * @Description: 结果类
  */
+
 public class Result {
     private Integer code;
     private String message;
