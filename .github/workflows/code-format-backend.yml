@@ -1,0 +1,29 @@
+name: Code Format Check Back End
+
+on:
+  push:
+    branches:
+      - wangyuze  # 当push到wangyuze分支触发
+      - wangjinyu  # 当push到wangjinyu分支触发
+  pull_request:
+    branches:
+      - dev  # 当pr到dev分支时触发
+
+jobs:
+  code_format_check:
+    runs-on: ubuntu-latest  # 在 Ubuntu 最新版环境上运行
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # 使用命令actions/checkout检出代码
+
+      - name: Set up Java
+        uses: actions/setup-java@v2  # 使用命令actions/setup-java设置 Java 环境
+        with:
+          java-version: '17'  # 本项目使用的 Java 版本
+
+      - name: Build with Maven
+        run: mvn clean package  # 清除项目目录中的旧构建文件 package 表示生成项目的可执行 JAR 文件或 WAR 文件
+
+      - name: Code Format Check
+        run: mvn spotless:check  # 执行代码格式检查
