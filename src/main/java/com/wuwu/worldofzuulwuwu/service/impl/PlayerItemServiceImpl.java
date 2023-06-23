@@ -14,6 +14,7 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
 
   public Boolean addItem(Long playerId, String itemName){
 
+    //TODO 添加物品时改变玩家容量
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
     playerItem.setId(ItemSetting.getId(itemName));

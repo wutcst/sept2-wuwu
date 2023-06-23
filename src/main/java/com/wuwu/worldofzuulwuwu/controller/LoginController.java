@@ -21,7 +21,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/login")
 @ResponseBody
-
 public class LoginController {
 
     @Autowired

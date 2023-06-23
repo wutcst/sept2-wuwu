@@ -1,18 +1,27 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
 import com.wuwu.worldofzuulwuwu.common.Record;
+import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author:wangyuze
  * @create: 2023-06-23 15:53
  * @Description: 回退指令
  */
-
+@Component
 public class BackCommand extends Command {
+
+    private static PlayerService playerService;
+
     @Autowired
-    private PlayerService playerService;
+    public void setPlayerService (PlayerService playerService){
+        BackCommand.playerService = playerService;
+    }
+
 
     public String execute(Long playerId){
         if(hasSecondWord()){

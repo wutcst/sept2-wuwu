@@ -30,8 +30,7 @@ public class ChatController {
     public Result processMessage(@RequestParam Map<String,String> data, HttpSession httpSession){
         String command = data.get("command");
         Command parserCommand = parser.getCommand(command);
-        String playerId = (String)httpSession.getAttribute("playerId");
-        Long id=Long.parseLong(playerId);
+        Long id = (Long)httpSession.getAttribute("playerId");
         String res = parserCommand.execute(id);
         if(res==null){
             return new Result(1,"success","I am sorry, I do not understand.");

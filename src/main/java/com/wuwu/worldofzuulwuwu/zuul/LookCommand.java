@@ -5,14 +5,26 @@ import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Component
 public class LookCommand extends Command{
 
-  @Autowired
-  private RoomItemService roomItemService;
-  @Autowired
-  private PlayerService playerService;
 
+  private  static RoomItemService roomItemService;
+
+  private static PlayerService playerService;
+
+  @Autowired
+  public void setRoomItemService (RoomItemService roomItemService){
+    LookCommand.roomItemService = roomItemService;
+  }
+
+  @Autowired
+  public void setPlayerService (PlayerService playerService){
+    LookCommand.playerService = playerService;
+  }
   @Override
   public String execute(Long playerId) {
 

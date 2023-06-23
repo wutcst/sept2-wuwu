@@ -17,6 +17,7 @@ public class RoomItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.Roo
   @Override
   public Boolean removeItem(Long playerId, String roomName, String itemName){
 
+    //TODO 移除物品时改变玩家容量
     Integer itemId = ItemSetting.getId(itemName);
     Integer roomId = RoomId.getRoomId(roomName);
 

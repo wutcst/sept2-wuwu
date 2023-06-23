@@ -3,6 +3,7 @@ package com.wuwu.worldofzuulwuwu.service;
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import org.springframework.stereotype.Service;
 
+@Service("playerService")
 public interface PlayerService {
   Boolean register(Player player);
   Long login(Player player);

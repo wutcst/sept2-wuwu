@@ -4,15 +4,33 @@ import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TakeCommand extends Command{
 
+
+
+  private static PlayerItemService playerItemService;
+
+  private  static RoomItemService roomItemService;
+
+  private static PlayerService playerService;
+
   @Autowired
-  private PlayerService playerService;
+  public void setRoomItemService (RoomItemService roomItemService){
+    TakeCommand.roomItemService = roomItemService;
+  }
+
   @Autowired
-  private PlayerItemService playerItemService;
+  public void setPlayerService (PlayerService playerService){
+    TakeCommand.playerService = playerService;
+  }
+
   @Autowired
-  private RoomItemService roomItemService;
+  public void setPlayerItemService (PlayerItemService playerItemService){
+    TakeCommand.playerItemService = playerItemService;
+  }
 
   @Override
   public String execute(Long playerId) {
@@ -26,9 +44,11 @@ public class TakeCommand extends Command{
     String itemName = getSecondWord();
 
     Item item = ItemSetting.getItem(ItemSetting.getId(itemName));
+
     if(item==null){
       return "There is no such item.";
     }else{
+      //TODO 考虑拿不起来的情况
       playerItemService.addItem(playerId, itemName);
       roomItemService.removeItem(playerId, currentRoom.getName(), itemName);
       return "You took " + itemName;

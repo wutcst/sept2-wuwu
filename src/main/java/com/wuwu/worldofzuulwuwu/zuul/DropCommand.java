@@ -4,15 +4,32 @@ import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class DropCommand extends Command{
 
+  private static PlayerItemService playerItemService;
+
+  private  static RoomItemService roomItemService;
+
+  private static PlayerService playerService;
+
   @Autowired
-  private PlayerService playerService;
+  public void setRoomItemService (RoomItemService roomItemService){
+    DropCommand.roomItemService = roomItemService;
+  }
+
   @Autowired
-  private PlayerItemService playerItemService;
+  public void setPlayerService (PlayerService playerService){
+    DropCommand.playerService = playerService;
+  }
+
   @Autowired
-  private RoomItemService roomItemService;
+  public void setPlayerItemService (PlayerItemService playerItemService){
+    DropCommand.playerItemService = playerItemService;
+  }
 
   @Override
   public String execute(Long playerId) {

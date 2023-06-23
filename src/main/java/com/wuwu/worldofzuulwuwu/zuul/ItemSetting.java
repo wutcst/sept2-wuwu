@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class ItemSetting {
 
-  private static HashMap<String, Integer> itemIdMap;
-  private static HashMap<Integer, Item> itemMap;
+  private static HashMap<String, Integer> itemIdMap=new HashMap<>();
+  private static HashMap<Integer, Item> itemMap=new HashMap<>();
 
   static {
     itemMap.put(1, new Item("gem", "This gem looks worth 100 million.", 1));

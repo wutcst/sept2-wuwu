@@ -1,5 +1,8 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
+import org.springframework.stereotype.Component;
+
+
 public abstract class Command
 {
     private String secondWord;

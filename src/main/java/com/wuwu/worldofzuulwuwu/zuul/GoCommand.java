@@ -1,14 +1,27 @@
 package com.wuwu.worldofzuulwuwu.zuul;
 
 import com.wuwu.worldofzuulwuwu.common.Record;
+import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import com.wuwu.worldofzuulwuwu.service.RoomItemService;
 import com.wuwu.worldofzuulwuwu.service.impl.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GoCommand extends Command
 {
+
+
+    private static PlayerService playerService;
+
+
     @Autowired
-    private PlayerService playerService;
+    public void setPlayerService (PlayerService playerService){
+        GoCommand.playerService = playerService;
+    }
+
+
 
     public String execute(Long playerId)
     {
@@ -22,6 +35,7 @@ public class GoCommand extends Command
         Room currentRoom = RoomSetting.rooms.get(roomId);
 
         Room nextRoom = currentRoom.getExit(direction);
+
 
         if (nextRoom == null) {
             return "There is no door!";
