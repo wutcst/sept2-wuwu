@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: change branch
-        uses: actions/javascript-action@master
-      
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -22,6 +19,12 @@ jobs:
         with:
           node-version: 18.16.0
       
+      - name: print git version
+        run: git --version
+        
+      - name: change branch
+        run: git checkout linrifen
+        
       - name: print info
         run: echo currentdir
       
