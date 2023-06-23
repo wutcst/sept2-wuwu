@@ -15,25 +15,30 @@ public class RoomItemService implements com.wuwu.worldofzuulwuwu.service.RoomIte
   @Autowired
   private RoomItemDao roomItemDao;
 
-  public Boolean addItem(Long playerId, String item){
-
-    RoomItem roomItem = new RoomItem();
-    roomItem.setPlayerId(playerId);
-    roomItem.setCount(1);
-
-    return roomItemDao.save(roomItem) > 0;
-  }
-
-  public Boolean removeItem(Long playerId, Room room, String itemName){
+  public Boolean removeItem(Long playerId, String roomName, String itemName){
 
     Integer itemId = ItemSetting.getId(itemName);
+    Integer roomId = RoomId.getRoomId(roomName);
 
     RoomItem roomItem = new RoomItem();
     roomItem.setPlayerId(playerId);
-    roomItem.setRoomId(RoomId.getRoomId(room.getName()));
-    roomItem.setId(ItemSetting.getId(itemName));
-    int result = roomItemDao.delete(roomItem);
+    roomItem.setRoomId(roomId);
+    roomItem.setId(itemId);
+    roomItem.setCount(1);
 
-    return result > 0;
+    return roomItemDao.delete(roomItem) > 0;
+  }
+
+  public Boolean addItem(Long playerId, String roomName, String itemName){
+
+    Integer itemId = ItemSetting.getId(itemName);
+    Integer roomId = RoomId.getRoomId(roomName);
+
+    RoomItem roomItem = new RoomItem();
+    roomItem.setPlayerId(playerId);
+    roomItem.setRoomId(roomId);
+    roomItem.setId(itemId);
+
+    return roomItemDao.save(roomItem) > 0;
   }
 }
