@@ -1,10 +1,13 @@
 package com.wuwu.worldofzuulwuwu.controller;
 
 import com.wuwu.worldofzuulwuwu.common.Result;
+import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
@@ -14,15 +17,26 @@ import java.util.Map;
  * @Description: 用户登录
  */
 @Controller
+@RequestMapping("./login")
 public class LoginController {
 
     @Autowired
     private PlayerService playerService;
 
-    @PostMapping("/login")
-    public Result login(Map<String,String> data){
+    @PostMapping
+    public Result login(Map<String,String> data, HttpSession httpSession){
         String username = data.get("username");
         String password = data.get("password");
-        playerService.
+        Player player=new Player();
+        player.setName(username);
+        player.setPassword(password);
+        Long id = playerService.login(player);
+        if(id!=null){
+            httpSession.setAttribute("playerId",id);
+            return new Result(1,"success","success login");
+        }
+        else{
+            return new Result(0,"error","error login");
+        }
     }
 }
