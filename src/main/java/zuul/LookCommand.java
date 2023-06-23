@@ -20,6 +20,9 @@ public class LookCommand extends Command{
     Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(currentRoomId));
 
     List<RoomItem> roomItemList = roomItemService.lookUpAllItems(playerId, currentRoom.getName());
+    if(roomItemList.isEmpty()){
+      return "You find nothing in this room";
+    }
     StringBuilder msg = new StringBuilder("You find:\n");
     for(RoomItem roomItem : roomItemList){
       Integer itemId = roomItem.getId();
