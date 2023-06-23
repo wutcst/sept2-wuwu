@@ -24,5 +24,5 @@ public abstract class Command
         this.secondWord = secondWord;
     }
 
-    public abstract boolean execute(Game game);
+    public abstract String execute(Long playerId);
 }
