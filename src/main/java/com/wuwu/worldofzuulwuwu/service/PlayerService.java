@@ -8,4 +8,6 @@ public interface PlayerService {
   Integer getCurrentRoom(Long id);
   Boolean setCurrentRoom(Long id, Integer roomId);
 
+  String getName(Long id);
+
 }

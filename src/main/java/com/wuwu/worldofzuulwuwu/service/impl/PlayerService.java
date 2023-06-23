@@ -38,4 +38,10 @@ public class PlayerService implements com.wuwu.worldofzuulwuwu.service.PlayerSer
     return playerDao.update(player) > 0;
   }
 
+
+  @Override
+  public String getName(Long id) {
+    Player player = playerDao.findById(id);
+    return player.getName();
+  }
 }
