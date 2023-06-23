@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: change branch
+        uses: actions/javascript-action@linrifen
+      
       - name: Checkout code
         uses: actions/checkout@v3
 
