@@ -17,6 +17,7 @@ public class CommandWords
         commands.put("drop", new DropCommand());
         commands.put("back",new BackCommand());
         commands.put("eat",new EatCookieCommand());
+        commands.put("items",new ItemsCommand());
     }
 
     public Command get(String word)
