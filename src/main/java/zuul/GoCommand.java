@@ -17,7 +17,7 @@ public class GoCommand extends Command
         String direction = getSecondWord();
 
 
-        Room currentRoom = RoomSetting.rooms.get(playerService.getCurrentRoom(playerId));
+        Room currentRoom = RoomSetting.rooms.get(RoomSetting.roomIds.get(playerService.getCurrentRoom(playerId)));
 
         Room nextRoom = currentRoom.getExit(direction);
 
@@ -25,10 +25,8 @@ public class GoCommand extends Command
             return "There is no door!";
         }
         else {
-            game.setCurrentRoom(nextRoom);
-            System.out.println(nextRoom.getLongDescription());
+            playerService.setCurrentRoom(playerId, RoomId.getRoomId(nextRoom.getName()));
+            return nextRoom.getLongDescription();
         }
-
-        return false;
     }
 }
