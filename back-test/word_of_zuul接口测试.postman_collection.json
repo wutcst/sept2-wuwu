@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "80f40495-f461-4674-bd14-e99587771534",
+		"name": "word_of_zuul接口测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26651961"
+	},
+	"item": [
+		{
+			"name": "登录测试",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "xiaowang",
+							"description": "用户名",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "密码",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "注册测试",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "xiaowang",
+							"description": "用户名",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "密码",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "take",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "command",
+							"value": "take gold_cup",
+							"description": "take指令测试",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "look",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "command",
+							"value": "look",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "go east",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "command",
+							"value": "go east",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "go west",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=go west",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "go west"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "go south",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=go south",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "go south"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "go north",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=go north",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "go north"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eat cookie1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=eat cookie1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "eat cookie1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "take cookie1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=take cookie1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "take cookie1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "back",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "command",
+							"value": "back",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "drop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "command",
+							"value": "drop gold_cup",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "items",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/main?command=items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"main"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "items"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

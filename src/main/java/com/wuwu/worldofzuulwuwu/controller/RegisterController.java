@@ -14,6 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+/**
+ * @author:wangyuze
+ * @create: 2023-06-23 13:23
+ * @Description: 用户注册
+ */
+>>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b
 @Controller
 @RequestMapping("/register")
 @ResponseBody
