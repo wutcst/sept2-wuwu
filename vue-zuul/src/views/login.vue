@@ -1,11 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
+
 <template>
   <div
     style="width: 100%;height: 100vh; background: linear-gradient(90deg,#3cadeb,#9c88ff);display: flex;justify-content: center;align-items: center">
     <div
       style="width: 300px; height: 380px;box-shadow: 0 5px 15px rgba(0, 0, 0, .8); display: flex;justify-content: center;align-items: center;">
-      <!-- :model="form"：该属性用于将表单数据绑定到组件的form属性上，实现表单数据的双向绑定。 -->
-      <!-- :rules="rules"：该属性用于将表单的验证规则绑定到组件的rules属性上 -->
       <el-form :model="form" size="normal" style="height: 100% ;width: 220px;" ref="form" :rules="rules">
         <!-- Login字母logo -->
         <div style="width: 100%;height: 40px;margin-top:10px;line-height: 40px;text-align: center">
@@ -43,17 +42,9 @@ export default {
     return {
       form: {},
       rules: {
-        /* username字段的验证规则为一个数组，其中包含了一个对象。这个对象的属性包括：
-          required：表示该字段为必填字段。
-          message：表示当该字段未填写时，提示的错误信息为"请输入用户名"。
-          trigger：表示触发验证的方式为"blur"，即在输入框失去焦点时进行验证。 */
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
         ],
-        /* password字段的验证规则也为一个数组，其中包含了一个对象。这个对象的属性包括：
-           required：表示该字段为必填字段。
-           message：表示当该字段未填写时，提示的错误信息为"请输入密码"。
-           trigger：表示触发验证的方式为"blur"，即在输入框失去焦点时进行验证。 */
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
     };
@@ -82,8 +73,6 @@ export default {
               this.$router.push("/main"); //登录成功后的页面跳转到主界面
             }
             else {
-              /* this.$router.push("/main"); */
-              /* alert("用户名或密码错误。") */
               this.$message({
                 type: "error",
                 message: "用户名或密码错误",

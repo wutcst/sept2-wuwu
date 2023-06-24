@@ -6,8 +6,8 @@ server:
 spring:
   datasource:
     username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/world_of_zuul?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    password: lrf20020331.
+    url: jdbc:mysql://localhost:3306/zuul?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   configuration:
