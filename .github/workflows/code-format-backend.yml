@@ -32,8 +32,5 @@ jobs:
       - name: Build with Maven
         run: mvn clean package  # 清除项目目录中的旧构建文件 package 表示生成项目的可执行 JAR 文件或 WAR 文件
 
-      - name: Checkstyle
-        uses: checkstyle/checkstyle-action@1.0.0
-        with:
-          version: '3.1.2'
-          configuration-path: 'checkstyle.xml'
+      - name: Code Format Check
+        run: mvn checkstyle:check -Dcheckstyle.config.location=./checkstyle.xml
