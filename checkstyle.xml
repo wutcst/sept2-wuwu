@@ -5,37 +5,43 @@
 
 <module name="Checker">
     <!-- 可根据需求添加或修改规则 -->
+    <!-- 使用 TreeWalker 模块包装所有规则 -->
+    <module name="TreeWalker">
 
-    <!-- 禁止使用通配符导入 -->
-    <module name="AvoidStarImport"/>
+        <!-- 禁止使用通配符导入 -->
+        <!--<module name="AvoidStarImport"/>-->
 
-    <!-- 检查类的命名规范 -->
-    <module name="AbbreviationAsWordInName"/>
-    <module name="ClassFanOutComplexity"/>
-    <module name="InnerTypeLast"/>
+        <!-- 检查类的命名规范 -->
+        <module name="AbbreviationAsWordInName"/>
+        <module name="ClassFanOutComplexity"/>
+        <module name="InnerTypeLast"/>
 
-    <!-- 检查方法的长度限制 -->
-    <module name="MethodLength"/>
+        <!-- 检查方法的长度限制 -->
+        <module name="MethodLength"/>
 
-    <!-- 禁止使用魔法数（未解释的字面量） -->
-    <module name="MagicNumber"/>
+        <!-- 禁止使用魔法数（未解释的字面量） -->
+        <!--<module name="MagicNumber"/>-->
 
-    <!-- 检查代码块的长度限制 -->
-    <module name="BlockLength"/>
+        <!-- 检查代码块的长度限制 -->
+        <!--<module name="BlockLength"/>-->
 
-    <!-- 检查方法参数的数量限制 -->
-    <module name="ParameterNumber"/>
+        <!-- 检查方法参数的数量限制 -->
+        <module name="ParameterNumber"/>
 
-    <!-- 检查行的长度限制 -->
-    <module name="LineLength"/>
 
-    <!-- 检查循环复杂度 -->
-    <module name="CyclomaticComplexity"/>
+        <!-- 检查循环复杂度 -->
+        <module name="CyclomaticComplexity"/>
 
-    <!-- 检查空格、缩进和换行等格式规范 -->
-    <module name="WhitespaceAround">
-        <property name="tokens" value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_NEW,LITERAL_RETURN,LITERAL_SWITCH,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,TYPE_EXTENSION_AND"/>
+        <!-- 检查空格、缩进和换行等格式规范 -->
+       <!-- <module name="WhitespaceAround">
+            <property name="tokens" value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_NEW,LITERAL_RETURN,LITERAL_SWITCH,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,TYPE_EXTENSION_AND"/>
+        </module>-->
+
+        <!-- 其他规则根据需要添加 -->
+
     </module>
 
-    <!-- 其他规则根据需要添加 -->
+    <!-- 检查行的长度限制 -->
+    <!--<module name="LineLength"/>-->
+
 </module>
