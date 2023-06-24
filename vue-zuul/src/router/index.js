@@ -11,11 +11,11 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
+   { 
+     path: '/', 
     /* redirect:'../views/login.vue', */
-    component: () => import('@/views/login')
-  },
+     component: () => import('@/views/login') 
+   }, 
   {
     path: '/login',
     name: 'login',
