@@ -6,10 +6,7 @@ import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -19,6 +16,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/login")
 @ResponseBody
+@CrossOrigin(origins = {"http://localhost:7000"})
 public class LoginController {
 
     @Autowired
@@ -32,7 +30,7 @@ public class LoginController {
      * @return The Result object containing the login result.
      */
     @PostMapping
-    public Result login(@RequestParam Map<String, String> data, HttpSession httpSession) {
+    public Result login(@RequestBody Map<String, String> data, HttpSession httpSession) {
         String username = data.get("username");
         String password = data.get("password");
         Player player = new Player();
