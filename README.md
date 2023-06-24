@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/00vPqKTJ)
 # 软件工程实训任务二：小组协同开发
 
 ## 任务目的
@@ -23,7 +22,7 @@
     * 所有小组成员应按操作步骤在github开发平台上加入同一小组，共用同一代码仓库；
     
 2. 开展小组讨论，确定功能扩充点
-    * 样例工程“world-of-zuul”具备最基本的程序功能，该项目具有极大的扩展空间，开发小组内可进行沟通讨论，确定系统结构优化需求或功能扩充需求，结构优化或功能扩充项不能少于5项；
+    * 样例工程“world-of-com.wuwu.worldofzuulwuwu.zuul”具备最基本的程序功能，该项目具有极大的扩展空间，开发小组内可进行沟通讨论，确定系统结构优化需求或功能扩充需求，结构优化或功能扩充项不能少于5项；
 
 > 可供参考的结构优化或功能扩充项包括但不限于以下内容：
 >
