@@ -40,8 +40,9 @@ public class PlayerItemServiceImpl implements PlayerItemService {
     Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
 
     capacity -= itemWeight;
+    player.setCapacity(capacity);
 
-    playerDao.save(player);
+    playerDao.update(player);
 
     PlayerItem playerItem = new PlayerItem();
     playerItem.setPlayerId(playerId);
@@ -68,8 +69,9 @@ public class PlayerItemServiceImpl implements PlayerItemService {
     Integer itemWeight = ItemSetting.getItem(ItemSetting.getId(itemName)).getWeight();
 
     capacity += itemWeight;
+    player.setCapacity(capacity);
 
-    playerDao.save(player);
+    playerDao.update(player);
 
     Integer itemId = ItemSetting.getId(itemName);
 
@@ -102,6 +104,9 @@ public class PlayerItemServiceImpl implements PlayerItemService {
           .append("] [").append(item.getWeight()).append("]\n");
 
     }
+
+    Player player = playerDao.findById(playerId);
+    msg.append("Your capacity is ").append(player.getCapacity());
     return msg.toString();
   }
 }
