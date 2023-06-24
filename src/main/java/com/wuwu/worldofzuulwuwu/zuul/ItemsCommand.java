@@ -2,6 +2,7 @@ package com.wuwu.worldofzuulwuwu.zuul;
 
 import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * The ItemsCommand class represents a command in the game to display the player's items.
@@ -22,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @create: 2023-06-23 15:53
  * @Description: Represents a command to display the player's items
  */
+@Component
 public class ItemsCommand extends Command {
 
   private static PlayerItemService playerItemService;

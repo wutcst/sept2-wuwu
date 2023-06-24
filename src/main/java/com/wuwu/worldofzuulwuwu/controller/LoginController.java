@@ -4,6 +4,7 @@ import com.wuwu.worldofzuulwuwu.common.Result;
 import com.wuwu.worldofzuulwuwu.entity.Player;
 import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/login")
 @ResponseBody
-@CrossOrigin(origins = {"http://localhost:7000"})
+@Slf4j
 public class LoginController {
 
     @Autowired
@@ -39,6 +40,9 @@ public class LoginController {
         Long playerId = playerService.login(player);
         if (playerId != null) {
             httpSession.setAttribute("playerId", playerId);
+            log.info(httpSession.getId());
+            Integer sessionTimeout = httpSession.getServletContext().getSessionTimeout();
+            log.info("time= ",sessionTimeout);
             return new Result(1, "success", "Successfully logged in.");
         } else {
             return new Result(0, "error", "Login failed. Invalid username or password.");

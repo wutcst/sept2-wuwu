@@ -4,10 +4,12 @@ import com.wuwu.worldofzuulwuwu.common.Result;
 import com.wuwu.worldofzuulwuwu.zuul.Command;
 import com.wuwu.worldofzuulwuwu.zuul.Parser;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -16,7 +18,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/main")
 @ResponseBody
-@CrossOrigin(origins = {"http://localhost:7000"})
+@Slf4j
 public class ChatController {
 
     @Autowired
@@ -34,6 +36,11 @@ public class ChatController {
         String command = data.get("command");
         Command parserCommand = parser.getCommand(command);
         Long playerId = (Long) httpSession.getAttribute("playerId");
+        log.info(httpSession.getId());
+        Enumeration<String> attributeNames = httpSession.getAttributeNames();
+        while(attributeNames.hasMoreElements()){
+            log.info(attributeNames.nextElement());
+        }
         String response = parserCommand.execute(playerId);
         if (response == null) {
             return new Result(1, "success", "I'm sorry, I do not understand.");
