@@ -8,49 +8,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * BackCommand 类是一个继承自 Command 的类，用于处理“回退”指令。
+ * The BackCommand class represents a command to go back to the previous room in the game.
+ * It is a component managed by Spring and is used in the game's Zuul framework.
+ *
+ * @author: wangyuze
+ * @create: 2023-06-23 15:53
+ * @Description: Command for going back to the previous room
  */
 @Component
 public class BackCommand extends Command {
 
-    // PlayerService 用于处理玩家相关信息的服务类。
     private static PlayerService playerService;
 
     /**
-     * 使用 @Autowired 注解告诉 Spring 框架需要注入 PlayerService 实例。
+     * Sets the player service using Spring's dependency injection.
      *
-     * @param playerService 玩家服务实例。
+     * @param playerService the player service to be set
      */
     @Autowired
-    public void setPlayerService (PlayerService playerService){
+    public void setPlayerService(PlayerService playerService) {
         BackCommand.playerService = playerService;
     }
 
     /**
-     * 执行“回退”指令，并返回字符串类型的值。
+     * Executes the back command for the specified player.
      *
-     * @param playerId 玩家 ID。
-     * @return 如果传送成功则返回该房间的长描述信息，否则返回 null。
+     * @param playerId the ID of the player executing the command
+     * @return the description of the next room or null if the command is invalid
      */
-    public String execute(Long playerId){
-        if(hasSecondWord()){
-            // 如果存在第二个单词，则判断其是否等于 "over"。
-            if(getSecondWord().equals("over")){
-                // 记录玩家所在房间，并将其传送到入口房间。
+    public String execute(Long playerId) {
+        if (hasSecondWord()) {
+            if (getSecondWord().equals("over")) {
+                // Save the current room and go back to the entrance
                 Integer currentRoomInt = playerService.getCurrentRoom(playerId);
                 RoomId roomId = RoomSetting.roomIds.get(currentRoomInt);
-                Record.record(playerId,roomId);
-                playerService.setCurrentRoom(playerId,RoomId.ENTRANCE.getId());
+                Record.record(playerId, roomId);
+                playerService.setCurrentRoom(playerId, RoomId.ENTRANCE.getId());
                 Room entrance = RoomSetting.rooms.get(RoomId.ENTRANCE);
                 return entrance.getLongDescription();
             }
-        }
-        else{
-            // 获取上一次所在的房间 ID，并将玩家传送到该房间。
+        } else {
+            // Go back to the previous room
             RoomId roomId = Record.back(playerId);
             Boolean ok = playerService.setCurrentRoom(playerId, roomId.getId());
-            if(ok){
-                Room nextRoom=RoomSetting.rooms.get(roomId);
+            if (ok) {
+                Room nextRoom = RoomSetting.rooms.get(roomId);
                 return nextRoom.getLongDescription();
             }
         }

@@ -3,7 +3,7 @@ package com.wuwu.worldofzuulwuwu.common;
 /**
  * @author:wangyuze
  * @create: 2023-06-22 17:36
- * @Description: 结果类
+ * @Description: result class
  */
 
 public class Result {

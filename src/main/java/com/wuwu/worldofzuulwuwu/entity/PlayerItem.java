@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author:wangyuze
  * @create: 2023-06-22 20:12
- * @Description: 玩家物品关系类
+ * @Description: relationship between player and items
  */
 @Data
 public class PlayerItem {

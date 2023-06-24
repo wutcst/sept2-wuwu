@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author:wangyuze
  * @create: 2023-06-22 14:18
- * @Description: 玩家类
+ * @Description: player class
  */
 
 @Data
