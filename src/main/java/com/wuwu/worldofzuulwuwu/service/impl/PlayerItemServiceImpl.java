@@ -5,13 +5,19 @@ import com.wuwu.worldofzuulwuwu.entity.PlayerItem;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerDao;
 import com.wuwu.worldofzuulwuwu.mapper.PlayerItemDao;
 import com.wuwu.worldofzuulwuwu.zuul.Item;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.wuwu.worldofzuulwuwu.zuul.ItemSetting;
+import com.wuwu.worldofzuulwuwu.service.PlayerItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+/**
+ * The PlayerItemServiceImpl class is an implementation of the PlayerItemService interface.
+ * It provides methods to manage player items.
+ */
 @Service
-public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.PlayerItemService {
+public class PlayerItemServiceImpl implements PlayerItemService {
 
   @Autowired
   private PlayerItemDao playerItemDao;
@@ -19,8 +25,15 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
   @Autowired
   private PlayerDao playerDao;
 
-  public Boolean addItem(Long playerId, String itemName){
-
+  /**
+   * Adds an item to the player's inventory.
+   *
+   * @param playerId The ID of the player.
+   * @param itemName The name of the item to add.
+   * @return {@code true} if the item was successfully added, {@code false} otherwise.
+   */
+  @Override
+  public Boolean addItem(Long playerId, String itemName) {
     Player player = playerDao.findById(playerId);
     Integer capacity = player.getCapacity();
 
@@ -41,8 +54,15 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     return playerItem1 > 0;
   }
 
-  public Boolean removeItem(Long playerId, String itemName){
-
+  /**
+   * Removes an item from the player's inventory.
+   *
+   * @param playerId The ID of the player.
+   * @param itemName The name of the item to remove.
+   * @return {@code true} if the item was successfully removed, {@code false} otherwise.
+   */
+  @Override
+  public Boolean removeItem(Long playerId, String itemName) {
     Player player = playerDao.findById(playerId);
     Integer capacity = player.getCapacity();
 
@@ -53,8 +73,6 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
 
     playerDao.update(player);
 
-
-
     Integer itemId = ItemSetting.getId(itemName);
 
     PlayerItem playerItem = new PlayerItem();
@@ -64,17 +82,23 @@ public class PlayerItemServiceImpl implements com.wuwu.worldofzuulwuwu.service.P
     return playerItemDao.delete(playerItem) > 0;
   }
 
+  /**
+   * Retrieves a description of all items in the player's inventory.
+   *
+   * @param playerId The ID of the player.
+   * @return The description of the player's items.
+   */
   @Override
   public String getItemsDescription(Long playerId) {
     List<PlayerItem> playerItems = playerItemDao.findAll(playerId);
     StringBuilder msg = new StringBuilder();
-    if(playerItems.isEmpty()){
+    if (playerItems.isEmpty()) {
       msg.append("You don't have anything.");
       return msg.toString();
     }
 
-    msg.append("You have following items: \n");
-    for(PlayerItem playerItem : playerItems){
+    msg.append("You have the following items:\n");
+    for (PlayerItem playerItem : playerItems) {
       Item item = ItemSetting.getItem(playerItem.getId());
       msg.append("[").append(item.getName()).append("] [").append(item.getDescription())
           .append("] [").append(item.getWeight()).append("]\n");

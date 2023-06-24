@@ -1,33 +1,32 @@
 /**
- * 该类是“World-of-Zuul”应用程序的主类。
- * 《World of Zuul》是一款简单的文本冒险游戏。用户可以在一些房间组成的迷宫中探险。
- * 你们可以通过扩展该游戏的功能使它更有趣!.
+ * The Game class is the main class of the "World of Zuul" application.
+ * "World of Zuul" is a simple text-based adventure game. Users can explore a maze of rooms.
+ * You can extend the functionality of this game to make it more interesting!
  *
- * 如果想开始执行这个游戏，用户需要创建Game类的一个实例并调用“play”方法。
+ * To start playing the game, a user needs to create an instance of the Game class and call the "play" method.
  *
- * Game类的实例将创建并初始化所有其他类:它创建所有房间，并将它们连接成迷宫；它创建解析器
- * 接收用户输入，并将用户输入转换成命令后开始运行游戏。
+ * An instance of the Game class will create and initialize all other classes: it creates all the rooms
+ * and connects them into a maze; it creates the parser to receive user input and convert it into commands
+ * to run the game.
  *
- * @author  Michael Kölling and David J. Barnes
+ * @author Michael Kölling and David J. Barnes
  * @version 1.0
  */
 package com.wuwu.worldofzuulwuwu.zuul;
 
-public class Game
-{
+public class Game {
     private Parser parser;
     private Room currentRoom;
     private Inventory inventory;
 
-    public Game()
-    {
+    public Game() {
         parser = new Parser();
     }
 
-
-
-    private void printWelcome()
-    {
+    /**
+     * Prints the welcome message when the game starts.
+     */
+    private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
@@ -36,14 +35,29 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
+    /**
+     * Returns the current room.
+     *
+     * @return the current room
+     */
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room room){
+    /**
+     * Sets the current room.
+     *
+     * @param room the room to be set as the current room
+     */
+    public void setCurrentRoom(Room room) {
         this.currentRoom = room;
     }
 
+    /**
+     * Returns the player's inventory.
+     *
+     * @return the player's inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }

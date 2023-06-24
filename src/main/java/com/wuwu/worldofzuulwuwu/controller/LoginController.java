@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 /**
- * @author:wangyuze
- * @create: 2023-06-23 13:52
- * @Description: 用户登录
+ * Controller class for user login.
  */
 @Controller
 @RequestMapping("/login")
@@ -26,20 +24,26 @@ public class LoginController {
     @Autowired
     private PlayerService playerService;
 
+    /**
+     * Handles user login request.
+     *
+     * @param data        The map of request parameters.
+     * @param httpSession The HttpSession object.
+     * @return The Result object containing the login result.
+     */
     @PostMapping
-    public Result login(@RequestParam Map<String,String> data, HttpSession httpSession){
+    public Result login(@RequestParam Map<String, String> data, HttpSession httpSession) {
         String username = data.get("username");
         String password = data.get("password");
-        Player player=new Player();
+        Player player = new Player();
         player.setName(username);
         player.setPassword(password);
-        Long id = playerService.login(player);
-        if(id!=null){
-            httpSession.setAttribute("playerId",id);
-            return new Result(1,"success","success login");
-        }
-        else{
-            return new Result(0,"error","error login");
+        Long playerId = playerService.login(player);
+        if (playerId != null) {
+            httpSession.setAttribute("playerId", playerId);
+            return new Result(1, "success", "Successfully logged in.");
+        } else {
+            return new Result(0, "error", "Login failed. Invalid username or password.");
         }
     }
 }

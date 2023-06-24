@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author:wangyuze
  * @create: 2023-06-22 20:09
- * @Description: 房间物品关系类
+ * @Description: relationship between rooms and items
  */
 @Data
 public class RoomItem {
