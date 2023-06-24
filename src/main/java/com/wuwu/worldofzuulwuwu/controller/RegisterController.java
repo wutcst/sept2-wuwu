@@ -16,7 +16,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/register")
 @ResponseBody
-@CrossOrigin(origins = {"http://localhost:7000"})
 public class RegisterController {
 
     @Autowired
