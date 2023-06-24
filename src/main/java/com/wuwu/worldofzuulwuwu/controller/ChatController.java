@@ -6,10 +6,7 @@ import com.wuwu.worldofzuulwuwu.zuul.Parser;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -19,6 +16,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/main")
 @ResponseBody
+@CrossOrigin(origins = {"http://localhost:7000"})
 public class ChatController {
 
     @Autowired
@@ -32,7 +30,7 @@ public class ChatController {
      * @return The Result object containing the processing result.
      */
     @PostMapping
-    public Result processMessage(@RequestParam Map<String, String> data, HttpSession httpSession) {
+    public Result processMessage(@RequestBody Map<String, String> data, HttpSession httpSession) {
         String command = data.get("command");
         Command parserCommand = parser.getCommand(command);
         Long playerId = (Long) httpSession.getAttribute("playerId");

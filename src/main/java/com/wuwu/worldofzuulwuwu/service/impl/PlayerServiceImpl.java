@@ -33,7 +33,7 @@ public class PlayerServiceImpl implements PlayerService {
     int result = playerDao.save(player);
     roomItemService.addItem(player.getId(), "cave", "gem");
     roomItemService.addItem(player.getId(), "cookie_room", "cookie1");
-    roomItemService.addItem(player.getId(), "treasure_room", "gold cup");
+    roomItemService.addItem(player.getId(), "treasure_room", "gold_cup");
     roomItemService.addItem(player.getId(), "lobby", "lantern");
     roomItemService.addItem(player.getId(), "weapon_room", "sword");
     roomItemService.addItem(player.getId(), "jail", "cookie2");

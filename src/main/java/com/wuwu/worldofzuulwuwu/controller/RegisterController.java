@@ -6,10 +6,7 @@ import com.wuwu.worldofzuulwuwu.service.PlayerService;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -19,6 +16,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/register")
 @ResponseBody
+@CrossOrigin(origins = {"http://localhost:7000"})
 public class RegisterController {
 
     @Autowired
@@ -31,7 +29,7 @@ public class RegisterController {
      * @return The Result object containing the registration result.
      */
     @PostMapping
-    public Result register(@RequestParam Map<String, String> data) {
+    public Result register(@RequestBody Map<String, String> data) {
         String username = data.get("username");
         String password = data.get("password");
         if (username == null || password == null) {
