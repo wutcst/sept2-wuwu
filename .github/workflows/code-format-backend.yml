@@ -33,5 +33,5 @@ jobs:
         run: mvn clean package  # 清除项目目录中的旧构建文件 package 表示生成项目的可执行 JAR 文件或 WAR 文件
 
       - name: Checkstyle Check
-        run: mvn checkstyle:check -Dcheckstyle.config.location=/home/runner/work/sept2-wuwu/sept2-wuwu/checkstyle.xml  # 执行 Checkstyle 代码检查
+        run: mvn checkstyle:check -Dcheckstyle.config.location=./checkstyle.xml  # 执行 Checkstyle 代码检查
         
