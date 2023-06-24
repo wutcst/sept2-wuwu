@@ -37,6 +37,6 @@ public class HelpCommand extends Command {
      */
     @Override
     public String execute(Long playerId) {
-        return null;
+        return commandWords.showAll();
     }
 }
