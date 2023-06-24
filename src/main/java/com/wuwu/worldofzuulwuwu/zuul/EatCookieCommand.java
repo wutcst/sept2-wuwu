@@ -47,7 +47,6 @@ public class EatCookieCommand extends Command {
      */
     @Override
     public String execute(Long playerId) {
-        //未指明要获取什么物品
         if (!hasSecondWord()) {
             return "eat what?";
         }
