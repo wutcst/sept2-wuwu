@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3  # 使用命令actions/checkout检出代码
-        with: 
-          ref: wangyuze
       
       - name: get current info
         run: pwd
