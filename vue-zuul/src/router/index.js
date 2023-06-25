@@ -11,7 +11,6 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 const routes = [
-
    { 
      path: '/', 
     /* redirect:'../views/login.vue', */

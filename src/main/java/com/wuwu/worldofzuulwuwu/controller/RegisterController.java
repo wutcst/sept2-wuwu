@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-<<<<<<< HEAD
-=======
 /**
  * Controller class for user registration.
  */
->>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b
 @Controller
 @RequestMapping("/register")
 @ResponseBody

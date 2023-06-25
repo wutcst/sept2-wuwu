@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:src/main/java/zuul/Parser.java
-package zuul;
-========
 package com.wuwu.worldofzuulwuwu.zuul;
->>>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b:src/main/java/com/wuwu/worldofzuulwuwu/zuul/Parser.java
 
 import org.springframework.stereotype.Component;
 
