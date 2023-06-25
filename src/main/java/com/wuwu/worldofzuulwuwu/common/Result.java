@@ -1,22 +1,28 @@
 package com.wuwu.worldofzuulwuwu.common;
 
+<<<<<<< HEAD
+=======
 /**
  * @author:wangyuze
  * @create: 2023-06-22 17:36
  * @Description: result class
  */
 
+>>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b
 public class Result {
     private Integer code;
     private String message;
     private String data;
 
+<<<<<<< HEAD
+=======
     public Result(Integer code, String message, String data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
+>>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b
     public Integer getCode() {
         return code;
     }

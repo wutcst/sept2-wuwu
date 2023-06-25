@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Enumeration;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
 /**
  * Controller class for processing chat data.
  */
+>>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b
 @Controller
 @RequestMapping("/main")
 @ResponseBody
