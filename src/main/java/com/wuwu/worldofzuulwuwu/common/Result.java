@@ -5,7 +5,7 @@ package com.wuwu.worldofzuulwuwu.common;
 /**
  * @author:wangyuze
  * @create: 2023-06-22 17:36
- * @Description: 结果类
+ * @Description: result class
  */
 
 >>>>>>> 656701185ab67113279f3127cbb7c3aa729f458b

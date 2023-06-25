@@ -3,21 +3,23 @@ package com.wuwu.worldofzuulwuwu.zuul;
 import java.util.HashMap;
 
 /**
- * @author:wangyuze
- * @create: 2023-06-22 19:38
- * @Description: 房间配置类
+ * The RoomSetting class represents the configuration of rooms in the game.
+ * It provides a mapping between room IDs and corresponding Room objects.
+ * It also sets up the exits between rooms.
  */
 public class RoomSetting {
-    public static HashMap<RoomId, Room> rooms=new HashMap<>();
-    public static HashMap<Integer,RoomId> roomIds=new HashMap<>();
+    public static HashMap<RoomId, Room> rooms = new HashMap<>();
+    public static HashMap<Integer, RoomId> roomIds = new HashMap<>();
+
     static {
+        // Create Room objects and add them to the rooms map
         rooms.put(RoomId.ENTRANCE, new Room("in a dungeon. Your journey for enormous treasure begins here."));
         rooms.put(RoomId.CAVE, new Room("in a cave. There is something glowing on the walls."));
         rooms.put(RoomId.TREASURE_ROOM, new Room("in an abandoned treasure room. You see a huge mouse"
             + "as big as you. Behind it is a gold cup. The mouse makes threatening noises when you approach."));
         rooms.put(RoomId.COOKIE_ROOM, new Room("in a kitchen. On the table is a piece of cookie. It seems"
             + " to possess some magic power."));
-        rooms.put(RoomId.DARKROOM, new Room("in a dark cave. Some mushroom are glowing in the darkness."));
+        rooms.put(RoomId.DARKROOM, new Room("in a dark cave. Some mushrooms are glowing in the darkness."));
         rooms.put(RoomId.LOBBY, new Room("in a lobby illuminated by a lantern."));
         rooms.put(RoomId.WEAPON_ROOM, new Room("in a weapon room. There is only a sword."));
         rooms.put(RoomId.JAIL, new Room("in a jail. A skeleton is wandering around. It is wearing"
@@ -27,15 +29,16 @@ public class RoomSetting {
         rooms.put(RoomId.SECRET_ROOM, new Room("in a secret room. The secret hides behind the letters"
             + " on the wall: F F F R L R. As you start wondering what they mean, the whole dungeon begins"
             + " to collapse. You must run!"));
-        rooms.put(RoomId.EXIT1, new Room("in front of an exit. On the wall there is a warning written "
+        rooms.put(RoomId.EXIT1, new Room("in front of an exit. On the wall, there is a warning written "
             + "in red capital letters: YOU SHALL BE BURIED HERE!"));
-        rooms.put(RoomId.EXIT2, new Room("in a passage. which way should you go?"));
-        rooms.put(RoomId.EXIT3, new Room("in a dead end. There seems no way ahead..."));
+        rooms.put(RoomId.EXIT2, new Room("in a passage. Which way should you go?"));
+        rooms.put(RoomId.EXIT3, new Room("in a dead end. There seems to be no way ahead..."));
         rooms.put(RoomId.EXIT4, new Room("in a passage. The collapsing is right behind you."));
-        rooms.put(RoomId.EXIT5, new Room("in a dead end. There seems no way ahead..."));
+        rooms.put(RoomId.EXIT5, new Room("in a dead end. There seems to be no way ahead..."));
         rooms.put(RoomId.EXIT6, new Room("in a treasure room. There is a hand bone with a magic ring on it."));
         rooms.put(RoomId.EXIT7, new Room("at the end of the exit. You can see the entrance in front of you."));
 
+        // Set up the exits between rooms
         rooms.get(RoomId.ENTRANCE).setExit("north", rooms.get(RoomId.CAVE));
         rooms.get(RoomId.CAVE).setExit("west", rooms.get(RoomId.COOKIE_ROOM));
         rooms.get(RoomId.CAVE).setExit("north", rooms.get(RoomId.TREASURE_ROOM));
@@ -65,11 +68,13 @@ public class RoomSetting {
         rooms.get(RoomId.EXIT5).setExit("north", rooms.get(RoomId.EXIT4));
         rooms.get(RoomId.EXIT6).setExit("south", rooms.get(RoomId.EXIT7));
         rooms.get(RoomId.EXIT7).setExit("west", rooms.get(RoomId.ENTRANCE));
-        for(var t:rooms.entrySet()){
-            var room = t.getValue();
-            var id  =t.getKey();
+
+        // Set the names of rooms based on their IDs and populate the roomIds map
+        for (var entry : rooms.entrySet()) {
+            var room = entry.getValue();
+            var id = entry.getKey();
             room.setName(id.toString().toLowerCase());
-            roomIds.put(id.getId(),id);
+            roomIds.put(id.getId(), id);
         }
     }
 

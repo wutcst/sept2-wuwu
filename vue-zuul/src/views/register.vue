@@ -85,7 +85,7 @@ export default {
           /* 这里注册也发post请求合适 */
           /* 成功的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/register1 */
           /* 失败的测试用例 http://yapi.smart-xwork.cn/mock/264710/yapi/register2 */
-          axios.post('http://yapi.smart-xwork.cn/mock/267043/yapi/yapi/register2', {"username": this.form.username, "password": this.form.password, "confirm": this.form.confirm} ).then((result) => {
+          axios.post('http://localhost:8080/register', {"username": this.form.username, "password": this.form.password, "confirm": this.form.confirm} ).then((result) => {
             console.log(result);
             /* code码为1是注册成功 */
             if (result.data.code === 1) {
@@ -93,7 +93,7 @@ export default {
                 type: "success",
                 message: "注册成功"
               })
-              this.$router.push("/login");//注册成功后的页面跳转
+              this.$router.push("/login");
             }
             /* code码为0是注册失败 */
             else {

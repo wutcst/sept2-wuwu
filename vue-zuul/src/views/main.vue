@@ -45,22 +45,25 @@
 
 <script>
 import axios from 'axios'
+axios.defaults.withCredentials=true;
 export default {
   data() {
     return {
       inputText: '',
-      additionalText: 'world-of-zull是由will Crowther在20世纪70年代开发、并经过Don woods扩充的一个探险游戏。原版的游戏有时候也叫作巨洞探险(Colossal Cave Adventure）。在那个时代可是一个精彩的、充满想象力的复杂游戏，包括要在一个复杂的洞穴系统中找到出路、寻找隐藏的财宝、使用暗语和其他一些神秘的工具，最终的目的是获得高分。', 
+      additionalText: 'world-of-zull是由will Crowther在20世纪70年代开发、并经过Don woods扩充的一个探险游戏，原版的游戏有时候也叫作巨洞探险。现由软件工程实践小组 WHUT-Group-wuwu实现该简易游戏界面。欢迎尝试游玩！', /* 显示的文本介绍 */
       messages: [
         { text: 'Hello! How can I help you?', isBot: true },
       ],
       tableData: [
-        { command: 'go', description: '移动' },
-        { command: 'back', description: '回到上一个房间' },
-        { command: 'back over', description: '回到初始房间' },
-        { command: 'look', description: '查看物品' },
-        { command: 'take', description: '捡起物品' },
-        { command: 'eat', description: '食用物品' },
+        { command: 'go', description: '移动角色' },
+        { command: 'back', description: '回退移动' },
+        { command: 'items', description: '查看背包' },
+        { command: 'look', description: '查看房间物品' },
+        { command: 'take', description: '捡起房间物品' },
+        { command: 'drop', description: '丢弃背包物品' },
+        { command: 'eat', description: '食用cookie' },
         { command: 'help', description: '查看帮助' },
+        { command: 'quit', description: '结束游戏' },
       ],
     }
   },
@@ -69,18 +72,18 @@ export default {
     sendMessage() {
       if (this.inputText) {
         this.messages.push({ text: this.inputText, isBot: false })
-        this.inputText = ''
+        /* this.inputText = '' */
 
         /* 这里发get还是post都可以，还是选择发post */
         /* 这里目前没有写判断code值为0或1的逻辑，后端传过来的数据code值都应该为1，只需要获取data.data即可 */
         /* 但接口文档里貌似code为0失败时的data为null，后期测试时按需修改 */
-        axios.post('http://yapi.smart-xwork.cn/mock/267043/yapi/yapi/main', {"command": this.inputText}).then((result) => {
+        axios.post('http://localhost:8080/main', {"command": this.inputText}).then((result) => {
           const botMessage = result.data.data;
           this.messages.push({ text: botMessage, isBot: true })
         }).catch((err) => {
           console.log(err);
         });
-
+        this.inputText = ''
         /* 超时的时候返回值 */
         /* setTimeout(() => {
           this.messages.push({ text: 'I am sorry, I do not understand.', isBot: true })

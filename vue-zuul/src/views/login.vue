@@ -35,6 +35,7 @@
 
 <script>
 import axios from 'axios'
+axios.defaults.withCredentials=true;
 export default {
   /* name: "login", */
   data() {
@@ -62,7 +63,7 @@ export default {
       this.$refs["form"].validate((valid) => {
         if (valid) {
           /* login界面发送post请求更合适，传表单数据的username和password给后端 */
-          axios.post('http://yapi.smart-xwork.cn/mock/267043/yapi/yapi/login1', { "username": this.form.username, 'password': this.form.password }).then((result) => {
+            axios.post('http://localhost:8080/login', { "username": this.form.username, 'password': this.form.password }).then((result) => {
             console.log(result);
             if (result.data.code === 1) {
               this.$message({
